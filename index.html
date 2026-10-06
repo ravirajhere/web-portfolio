@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ravi Raj — Frontend Developer Portfolio Website</title>
-    <meta name="description" content="Aspiring BTech student from Patna. I build websites by hand — HTML, CSS, JS. 6 live projects including a book reader, snake game, and CLI portfolio." />
+    <title>Ravi Raj — Aspiring BTech Student | Web Projects</title>
+    <meta name="description" content="1st year BTech student from Patna. I build small web projects with HTML, CSS, and JavaScript to understand how the web works. 6 live projects. Currently learning React and DSA." />
     <meta name="author" content="Ravi Raj" />
     <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
@@ -12,20 +12,20 @@
     <meta name="robots" content="index, follow" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Ravi Raj — 1st Year BTech Student | Web Developer" />
-    <meta property="og:description" content="Hand-written HTML/CSS/JS. 6 live projects. No frameworks." />
+    <meta property="og:title" content="Ravi Raj — 1st Year BTech Student | Web Projects" />
+    <meta property="og:description" content="Learning to build for the web — one project at a time. 6 live projects, built with HTML, CSS, and JavaScript." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://ravirajhere-portfolio.vercel.app/" />
     <meta property="og:image" content="https://ravirajhere-portfolio.vercel.app/assets/images/og-cover.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Ravi Raj — Aspiring BTech Student Portfolio" />
+    <meta property="og:image:alt" content="Ravi Raj — 1st year BTech student, portfolio" />
     <meta property="og:locale" content="en_IN" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Ravi Raj — Aspiring BTech Student | Web Developer" />
-    <meta name="twitter:description" content="Hand-written HTML/CSS/JS. 6 live projects. No frameworks." />
+    <meta name="twitter:title" content="Ravi Raj — 1st Year BTech Student | Web Projects" />
+    <meta name="twitter:description" content="Learning to build for the web — one project at a time. 6 live projects." />
     <meta name="twitter:image" content="https://ravirajhere-portfolio.vercel.app/assets/images/og-cover.jpg" />
 
     <!-- Icons -->
@@ -49,7 +49,7 @@
       "url": "https://ravirajhere-portfolio.vercel.app/",
       "image": "https://ravirajhere-portfolio.vercel.app/assets/images/formal.jpg",
       "jobTitle": "Student",
-      "description": "Aspiring BTech student from Patna. Builds websites by hand — HTML, CSS, JS. No frameworks.",
+      "description": "1st year BTech student from Patna. Builds small web projects with HTML, CSS, and JavaScript. Currently learning React and DSA.",
       "email": "mailto:raviraj2k09@gmail.com",
       "address": {
         "@type": "PostalAddress",
@@ -70,7 +70,8 @@
 
     <noscript>
       <style>
-        .menu-btn { display: none !important; }
+        .menu-btn, .mobile-nav, .mobile-overlay { display: none !important; }
+        .primary-nav { display: flex !important; }
       </style>
     </noscript>
 </head>
@@ -82,10 +83,11 @@
         <div class="header-inner">
             <a href="#hero" class="brand" aria-label="Ravi Raj — Home">
                 <img src="assets/favicon.png" alt="" class="brand-mark-img" width="36" height="36" aria-hidden="true" />
-                <span class="brand-text"><strong>Ravi Raj</strong><em>Aspiring BTech Student</em></span>
+                <span class="brand-text"><strong>Ravi Raj</strong><em>BTech Student</em></span>
             </a>
 
             <nav class="primary-nav" aria-label="Primary">
+                <a href="#hero">About</a>
                 <a href="#work">Work</a>
                 <a href="#skills">Skills</a>
                 <a href="#contact">Contact</a>
@@ -118,40 +120,38 @@
             </svg>
         </button>
         <ul>
-            <li><a href="#work"><span>01</span>Work</a></li>
-            <li><a href="#skills"><span>02</span>Skills</a></li>
-            <li><a href="#contact"><span>03</span>Contact</a></li>
+            <li><a href="#hero"><span>01</span>About</a></li>
+            <li><a href="#work"><span>02</span>Work</a></li>
+            <li><a href="#skills"><span>03</span>Skills</a></li>
+            <li><a href="#contact"><span>04</span>Contact</a></li>
         </ul>
         <div class="mobile-nav-foot">
             <p>Patna, India · IST</p>
-            <p>raviraj2k09@gmail.com</p>
+            <p><a href="mailto:raviraj2k09@gmail.com">raviraj2k09@gmail.com</a></p>
         </div>
     </nav>
 
     <!-- MAIN -->
     <main id="main" tabindex="-1">
 
-        <!-- HERO -->
+        <!-- HERO / ABOUT -->
         <section class="hero" id="hero" aria-labelledby="hero-heading">
             <div class="hero-grid">
                 <div class="hero-content">
                     <p class="hero-eyebrow">
                         <span class="eyebrow-dot" aria-hidden="true"></span>
-                        Senior Secondary (CBSE)· Completed in 2026
+                        1st Year BTech CSE · Patna, India
                     </p>
                     <h1 id="hero-heading" class="hero-title">
-                        I build websites<br>
-                        <em>by hand — no frameworks.</em>
+                        I'm learning to build<br>
+                        <em>for the web — one project at a time.</em>
                     </h1>
                     <p class="hero-lede">
-                        I'm Ravi, aspiring BTech student from Patna. I build websites with HTML, CSS, and JavaScript — no templates, no frameworks. Currently learning React and DSA.
+                        I'm Ravi, a 1st year BTech student from Patna. I build small things with HTML, CSS, and JavaScript to understand how the web works. Currently learning React and DSA — learning in public since 2024.
                     </p>
                     <div class="hero-actions">
                         <a href="#work" class="btn btn-primary btn-lg">
                             See my work ↓
-                        </a>
-                        <a href="resume-pdf.html" class="btn btn-quiet btn-lg">
-                            View resume
                         </a>
                     </div>
                     <dl class="hero-meta" aria-label="Quick facts">
@@ -161,10 +161,10 @@
                         <div>
                             <dt>Activity</dt>
                             <dd>
-                                <span class="tb-commits" id="tbCommits" aria-live="polite">
+                                <a href="https://github.com/ravirajhere" target="_blank" rel="noopener noreferrer" class="tb-commits" id="tbCommits">
                                     <span class="tb-commits-dot" aria-hidden="true"></span>
-                                    <span class="tb-commits-text">Committed today</span>
-                                </span>
+                                    <span class="tb-commits-text">See my GitHub activity ↗</span>
+                                </a>
                             </dd>
                         </div>
                     </dl>
@@ -173,8 +173,7 @@
                     <figure class="hero-portrait">
                         <img src="assets/images/formal.jpg" alt="Ravi Raj, photographed in Patna" width="280" height="280" loading="eager" decoding="async" />
                         <figcaption>
-                            <span class="photo-note">"Real afternoon. Not stock."</span>
-                            <span class="photo-credit">— Patna, 2026</span>
+                            <span class="photo-credit">Ravi Raj · Patna, 2026</span>
                         </figcaption>
                     </figure>
                 </aside>
@@ -188,9 +187,9 @@
         <!-- WORK -->
         <section class="section" id="work" aria-labelledby="work-heading">
             <header class="section-head">
-                <span class="section-num">01 / Selected Work</span>
-                <h2 id="work-heading">Six projects. <em>All built by hand.</em></h2>
-                <p class="section-lede">Zero frameworks. Every one is live.</p>
+                <span class="section-num">Selected Work</span>
+                <h2 id="work-heading">Six projects. <em>Built while learning.</em></h2>
+                <p class="section-lede">No frameworks. Every one is live.</p>
             </header>
 
             <div class="work-list">
@@ -198,22 +197,22 @@
                 <!-- Project 1: Author Website + Book Reader -->
                 <article class="work-item work-item-featured">
                     <header class="work-head">
-                        <span class="work-year">2024 → Present</span>
+                        <span class="work-year">2024 — Present</span>
                         <h3>Author Website + Book Reader</h3>
                         <p class="work-tag">11 Chapters · Bilingual (EN + HI) · Audio · Progress Save</p>
                     </header>
                     <dl class="work-detail">
                         <div>
                             <dt>The Challenge</dt>
-                            <dd>Personal archive scattered in notebooks. Needed a reading experience that feels like a book — with progress save, audio, and print support.</dd>
+                            <dd>Personal archive scattered in notebooks. Wanted a reading experience that feels like a book — with progress save, audio, and print support.</dd>
                         </div>
                         <div>
                             <dt>What I Built</dt>
                             <dd>Custom reader with vanilla JS, localStorage progress, Web Speech API for audio. Bilingual chapters in English and Hindi.</dd>
                         </div>
                         <div>
-                            <dt>Stack</dt>
-                            <dd>HTML · CSS · Vanilla JS — 0 frontend dependencies.</dd>
+                            <dt>What I Learned</dt>
+                            <dd>localStorage, the Web Speech API, and how to structure a multi-page reading flow without a framework.</dd>
                         </div>
                     </dl>
                     <footer class="work-foot">
@@ -245,6 +244,10 @@
                             <dt>What I Built</dt>
                             <dd>HTML5 Canvas game loop with requestAnimationFrame, keyboard + touch controls, local high-score, retro pixel aesthetic.</dd>
                         </div>
+                        <div>
+                            <dt>What I Learned</dt>
+                            <dd>Game loops, collision detection, and how requestAnimationFrame actually works.</dd>
+                        </div>
                     </dl>
                     <footer class="work-foot">
                         <a href="https://ravirajhere-snake.vercel.app" target="_blank" rel="noopener noreferrer">
@@ -269,11 +272,15 @@
                     <dl class="work-detail">
                         <div>
                             <dt>The Challenge</dt>
-                            <dd>Recruiters and devs live in the terminal. Why not have a portfolio there too?</dd>
+                            <dd>Devs live in the terminal. Why not have a portfolio there too?</dd>
                         </div>
                         <div>
                             <dt>What I Built</dt>
                             <dd>A Node.js CLI with ANSI colors, typewriter effect, and interactive sections. Installable via a single <code>npx</code> command.</dd>
+                        </div>
+                        <div>
+                            <dt>What I Learned</dt>
+                            <dd>Node.js basics, publishing to npm, and terminal UX.</dd>
                         </div>
                     </dl>
                     <footer class="work-foot">
@@ -302,6 +309,10 @@
                         <div>
                             <dt>What I Built</dt>
                             <dd>A simple expense splitter that tracks who paid what and calculates the minimum number of transactions to settle up. Saves data in localStorage — no login, no backend.</dd>
+                        </div>
+                        <div>
+                            <dt>What I Learned</dt>
+                            <dd>Greedy algorithms for debt settlement, and managing app state with vanilla JS.</dd>
                         </div>
                     </dl>
                     <footer class="work-foot">
@@ -333,6 +344,10 @@
                             <dt>What I Built</dt>
                             <dd>A clean weather app that uses geolocation and a public weather API to show current conditions. Search any city, see temperature, humidity, and wind.</dd>
                         </div>
+                        <div>
+                            <dt>What I Learned</dt>
+                            <dd>Fetch API, async/await, handling geolocation permissions, and rendering loading/error states.</dd>
+                        </div>
                     </dl>
                     <footer class="work-foot">
                         <a href="https://ravirajhere-weather.vercel.app" target="_blank" rel="noopener noreferrer">
@@ -363,6 +378,10 @@
                             <dt>What I Built</dt>
                             <dd>A password generator with options for length, numbers, symbols, and case. Shows strength meter and copies to clipboard in one click.</dd>
                         </div>
+                        <div>
+                            <dt>What I Learned</dt>
+                            <dd>The Clipboard API and how to score password strength with simple entropy rules.</dd>
+                        </div>
                     </dl>
                     <footer class="work-foot">
                         <a href="https://rj-password-tool.vercel.app" target="_blank" rel="noopener noreferrer">
@@ -383,7 +402,7 @@
         <!-- SKILLS -->
         <section class="section" id="skills" aria-labelledby="skills-heading">
             <header class="section-head">
-                <span class="section-num">02 / Skills</span>
+                <span class="section-num">Skills</span>
                 <h2 id="skills-heading">What I know. <em>Honest levels.</em></h2>
                 <p class="section-lede">No fake percentages. Just what I've actually built with.</p>
             </header>
@@ -396,47 +415,47 @@
                 <div class="skills-row" role="row">
                     <span role="cell">HTML / CSS / JS</span>
                     <span role="cell"><span class="pill pill-working">Working</span></span>
-                    <span role="cell">This site, book reader, snake</span>
+                    <span role="cell">This portfolio + 5 live sites</span>
                 </div>
                 <div class="skills-row" role="row">
                     <span role="cell">Git / GitHub</span>
                     <span role="cell"><span class="pill pill-working">Working</span></span>
-                    <span role="cell">Daily commits, 6 repos</span>
+                    <span role="cell">Daily commits · 6 public repos</span>
                 </div>
                 <div class="skills-row" role="row">
                     <span role="cell">Node.js / npm</span>
                     <span role="cell"><span class="pill pill-working">Working</span></span>
-                    <span role="cell">CLI portfolio</span>
+                    <span role="cell">CLI portfolio on npm</span>
                 </div>
                 <div class="skills-row" role="row">
                     <span role="cell">Vercel</span>
                     <span role="cell"><span class="pill pill-working">Working</span></span>
-                    <span role="cell">Deployed 6 projects</span>
+                    <span role="cell">6 projects deployed</span>
                 </div>
                 <div class="skills-row" role="row">
                     <span role="cell">React</span>
                     <span role="cell"><span class="pill pill-learning">Learning</span></span>
-                    <span role="cell">Daily practice</span>
+                    <span role="cell">Building small components</span>
                 </div>
                 <div class="skills-row" role="row">
                     <span role="cell">DSA (C++)</span>
                     <span role="cell"><span class="pill pill-learning">Learning</span></span>
-                    <span role="cell">Ongoing</span>
+                    <span role="cell">Following Striver's A2Z sheet</span>
                 </div>
             </div>
         </section>
 
-        <!-- CONTACT -->
+        <!-- CONTACT / CONNECT -->
         <section class="section contact" id="contact" aria-labelledby="contact-heading">
             <header class="section-head">
-                <span class="section-num">03 / Contact</span>
-                <h2 id="contact-heading">Let's build something.</h2>
-                <p class="section-lede">Open to internships and freelance. I reply within 24 hours.</p>
+                <span class="section-num">Contact</span>
+                <h2 id="contact-heading">Let's connect.</h2>
+                <p class="section-lede">Open to internships, collabs, and feedback. I reply within 24 hours.</p>
             </header>
 
             <div class="contact-grid">
 
-                <!-- Left: Quick contact -->
+                <!-- Left: Quick contact + socials -->
                 <div class="contact-info">
                     <button class="contact-email" id="copyEmail" type="button" aria-label="Copy email to clipboard" data-label="raviraj2k09@gmail.com">
                         <span id="emailText">raviraj2k09@gmail.com</span>
@@ -523,26 +542,19 @@
                     <img src="assets/favicon.png" alt="" class="footer-brand-icon" width="28" height="28" aria-hidden="true" />
                     Ravi Raj
                 </p>
-                <p class="footer-tag">Frontend Developer. Patna, India.</p>
+                <p class="footer-tag">BTech Student · Learning Web Dev · Patna, India</p>
             </div>
             <div class="footer-col">
                 <p class="footer-label">Navigate</p>
                 <ul>
+                    <li><a href="#hero">About</a></li>
                     <li><a href="#work">Work</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <p class="footer-label">Projects</p>
-                <ul>
-                    <li><a href="https://ravirajhere-author.vercel.app" target="_blank" rel="noopener noreferrer">Author site</a></li>
-                    <li><a href="https://ravirajhere-snake.vercel.app" target="_blank" rel="noopener noreferrer">Snake game</a></li>
-                    <li><a href="https://github.com/ravirajhere/cli-portfolio" target="_blank" rel="noopener noreferrer">CLI portfolio</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <p class="footer-label">Elsewhere</p>
+                <p class="footer-label">Connect</p>
                 <ul>
                     <li><a href="https://github.com/ravirajhere" target="_blank" rel="noopener noreferrer">GitHub</a></li>
                     <li><a href="https://linkedin.com/in/Ravirajhere" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
