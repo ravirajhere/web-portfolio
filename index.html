@@ -1,119 +1,525 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ravi Raj — Frontend Developer</title>
-  <meta name="description" content="First-year BTech student from Patna. I build small web tools with HTML, CSS, and JavaScript." />
-  <meta name="author" content="Ravi Raj" />
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ravi Raj — 1st Year BTech Student | Web Developer, Patna</title>
+    <meta name="description" content="1st year BTech student from Patna. I build websites by hand — HTML, CSS, JS. 6 live projects including a book reader, snake game, and CLI portfolio." />
+    <meta name="author" content="Ravi Raj" />
+    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <link rel="canonical" href="https://ravirajhere.vercel.app/" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Ravi Raj — 1st Year BTech Student | Web Developer" />
+    <meta property="og:description" content="Hand-written HTML/CSS/JS. 6 live projects. No frameworks." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ravirajhere.vercel.app/" />
+    <meta property="og:image" content="https://ravirajhere.vercel.app/assets/images/og-cover.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Ravi Raj — 1st Year BTech Student Portfolio" />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ravi Raj — 1st Year BTech Student | Web Developer" />
+    <meta name="twitter:description" content="Hand-written HTML/CSS/JS. 6 live projects. No frameworks." />
+    <meta name="twitter:image" content="https://ravirajhere.vercel.app/assets/images/og-cover.jpg" />
+
+    <!-- Icons -->
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link rel="apple-touch-icon" href="assets/favicon.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ravi Raj",
+      "url": "https://ravirajhere.vercel.app/",
+      "image": "https://ravirajhere.vercel.app/assets/images/formal.jpg",
+      "jobTitle": "Student",
+      "description": "1st year BTech student from Patna. Builds websites by hand — HTML, CSS, JS. No frameworks.",
+      "email": "mailto:raviraj2k09@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Patna",
+        "addressRegion": "Bihar",
+        "addressCountry": "India"
+      },
+      "knowsAbout": [
+        "HTML5", "CSS3", "JavaScript", "Git", "Node.js",
+        "Responsive Design", "Accessibility"
+      ],
+      "sameAs": [
+        "https://github.com/ravirajhere",
+        "https://linkedin.com/in/Ravirajhere"
+      ]
+    }
+    </script>
+
+    <noscript>
+      <style>
+        .menu-btn, .kbd-hint, .cmd-palette { display: none !important; }
+      </style>
+    </noscript>
 </head>
 <body>
+    <a href="#main" class="skip-link">Skip to content</a>
 
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="nav-inner">
-      <a href="#hero" class="brand">Ravi Raj</a>
-      <div class="nav-links">
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero -->
-  <section class="hero" id="hero">
-    <p class="hero-eyebrow">First-year BTech student · Patna, India</p>
-    <h1>Hi, I'm <span class="accent">Ravi Raj</span></h1>
-    <p class="hero-sub">
-      I build small, useful web tools by hand — HTML, CSS, and JavaScript.
-      No frameworks yet. Every line is mine.
-    </p>
-    <div class="hero-actions">
-      <a href="#projects" class="btn primary">See my work</a>
-      <a href="https://github.com/ravirajhere" target="_blank" rel="noopener" class="btn secondary">GitHub</a>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section class="section" id="projects">
-    <h2>Projects</h2>
-    <p class="section-sub">Three tools I built and deployed. All live, all hand-written.</p>
-
-    <div class="projects-grid">
-
-      <article class="project-card">
-        <h3>🔐 Password Generator</h3>
-        <p>Generate strong random passwords and check password strength in real time. 100% client-side — no data leaves the browser.</p>
-        <div class="project-links">
-          <a href="https://rj-password-tool.vercel.app" target="_blank" rel="noopener">Live Demo →</a>
-          <a href="https://github.com/ravirajhere/password-tool" target="_blank" rel="noopener">Code</a>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="top-bar-inner">
+            <span class="tb-live">
+                <span class="dot" aria-hidden="true"></span> 1st Year BTech · Learning in public
+            </span>
+            <span class="tb-sep" aria-hidden="true">·</span>
+            <span class="tb-item">Patna, India (IST)</span>
+            <span class="tb-spacer"></span>
+            <span class="tb-commits" id="tbCommits" aria-live="polite">
+                <span class="tb-commits-dot" aria-hidden="true"></span> Committed today
+            </span>
+            <button class="kbd-hint" id="kbdHint" type="button" aria-label="Press K for keyboard shortcuts">
+                <kbd>K</kbd> jump
+            </button>
         </div>
-      </article>
+    </div>
 
-      <article class="project-card">
-        <h3>💰 Expense Splitter</h3>
-        <p>Track group expenses and automatically calculate who owes whom. Uses localStorage and a debt-settlement algorithm to minimize transactions.</p>
-        <div class="project-links">
-          <a href="https://rj-expense-spliiter.vercel.app" target="_blank" rel="noopener">Live Demo →</a>
-          <a href="https://github.com/ravirajhere/expense-splitter" target="_blank" rel="noopener">Code</a>
+    <!-- HEADER -->
+    <header class="site-header" id="siteHeader">
+        <div class="header-inner">
+            <a href="#hero" class="brand" aria-label="Ravi Raj — Home">
+                <span class="brand-mark" aria-hidden="true"><span class="bm-dot"></span> RR</span>
+                <span class="brand-text"><strong>Ravi Raj</strong><em>1st Year BTech Student</em></span>
+            </a>
+
+            <nav class="primary-nav" aria-label="Primary">
+                <a href="#work">Work</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="resume-pdf.html" class="btn btn-quiet">
+                    <span>Resume</span>
+                    <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+                        <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                    </svg>
+                </a>
+                <a href="contact.html" class="btn btn-primary">Get in touch</a>
+            </div>
+
+            <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav" type="button">
+                <span class="menu-lines" aria-hidden="true"><span></span><span></span></span>
+                <span class="menu-label">Menu</span>
+            </button>
         </div>
-      </article>
+    </header>
 
-      <article class="project-card">
-        <h3>🌤️ Weather Now</h3>
-        <p>Live weather for any city with plain-language suggestions. Built with the Open-Meteo API — no key, no backend.</p>
-        <div class="project-links">
-          <a href="https://ravirajhere-weather.vercel.app" target="_blank" rel="noopener">Live Demo →</a>
-          <a href="https://github.com/ravirajhere/weather-now" target="_blank" rel="noopener">Code</a>
+    <!-- MOBILE NAV -->
+    <div class="mobile-overlay" id="mobileOverlay" hidden aria-hidden="true"></div>
+
+    <nav class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true" aria-label="Mobile navigation" hidden aria-hidden="true">
+        <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 6l12 12M6 18L18 6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            </svg>
+        </button>
+        <ul>
+            <li><a href="#work"><span>01</span>Work</a></li>
+            <li><a href="#skills"><span>02</span>Skills</a></li>
+            <li><a href="#contact"><span>03</span>Contact</a></li>
+        </ul>
+        <div class="mobile-nav-foot">
+            <p>Patna, India · IST</p>
+            <p>raviraj2k09@gmail.com</p>
         </div>
-      </article>
+    </nav>
 
+    <!-- MAIN -->
+    <main id="main" tabindex="-1">
+
+        <!-- HERO -->
+        <section class="hero" id="hero" aria-labelledby="hero-heading">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <p class="hero-eyebrow">
+                        <span class="eyebrow-dot" aria-hidden="true"></span>
+                        1st year BTech CSE · Learning web development since 2024
+                    </p>
+                    <h1 id="hero-heading" class="hero-title">
+                        I build websites<br>
+                        <em>by hand — no frameworks.</em>
+                    </h1>
+                    <p class="hero-lede">
+                        I'm Ravi, a 1st year BTech student from Patna. I build websites with HTML, CSS, and JavaScript — no templates, no frameworks. Currently learning React and DSA.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#work" class="btn btn-primary btn-lg">
+                            See my work ↓
+                        </a>
+                        <a href="resume-pdf.html" class="btn btn-quiet btn-lg">
+                            View resume
+                        </a>
+                    </div>
+                    <dl class="hero-meta" aria-label="Quick facts">
+                        <div><dt>Education</dt><dd>BTech CSE · 1st Year</dd></div>
+                        <div><dt>Focus</dt><dd>HTML · CSS · JavaScript</dd></div>
+                        <div><dt>Location</dt><dd>Patna, India · Remote</dd></div>
+                    </dl>
+                </div>
+                <aside class="hero-side" aria-label="Portrait">
+                    <figure class="hero-portrait">
+                        <img src="assets/images/formal.jpg" alt="Ravi Raj, photographed in Patna" width="280" height="280" loading="eager" decoding="async" />
+                        <figcaption>
+                            <span class="photo-note">"Real afternoon. Not stock."</span>
+                            <span class="photo-credit">— Patna, 2026</span>
+                        </figcaption>
+                    </figure>
+                </aside>
+            </div>
+            <div class="scroll-cue" aria-hidden="true">
+                <span>Scroll — the work begins</span>
+                <span class="scroll-line"></span>
+            </div>
+        </section>
+
+        <!-- WORK -->
+        <section class="section" id="work" aria-labelledby="work-heading">
+            <header class="section-head">
+                <span class="section-num">01 / Selected Work</span>
+                <h2 id="work-heading">Six projects. <em>All built by hand.</em></h2>
+                <p class="section-lede">Zero frameworks. Every one is live.</p>
+            </header>
+
+            <div class="work-list">
+
+                <!-- Project 1: Author Website + Book Reader -->
+                <article class="work-item work-item-featured">
+                    <header class="work-head">
+                        <span class="work-year">2024 → Present</span>
+                        <h3>Author Website + Book Reader</h3>
+                        <p class="work-tag">11 Chapters · Bilingual (EN + HI) · Audio · Progress Save</p>
+                    </header>
+                    <dl class="work-detail">
+                        <div>
+                            <dt>The Challenge</dt>
+                            <dd>Personal archive scattered in notebooks. Needed a reading experience that feels like a book — with progress save, audio, and print support.</dd>
+                        </div>
+                        <div>
+                            <dt>What I Built</dt>
+                            <dd>Custom reader with vanilla JS, localStorage progress, Web Speech API for audio. Bilingual chapters in English and Hindi.</dd>
+                        </div>
+                        <div>
+                            <dt>Stack</dt>
+                            <dd>HTML · CSS · Vanilla JS — 0 frontend dependencies.</dd>
+                        </div>
+                    </dl>
+                    <footer class="work-foot">
+                        <a href="https://ravirajhere-author.vercel.app/book.html" target="_blank" rel="noopener noreferrer">
+                            Read the book
+                            <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+                                <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                            </svg>
+                        </a>
+                        <a href="https://github.com/ravirajhere/author-website" target="_blank" rel="noopener noreferrer" class="work-foot-secondary">
+                            Source ↗
+                        </a>
+                    </footer>
+                </article>
+
+                <!-- Project 2: Snake Game -->
+                <article class="work-item">
+                    <header class="work-head">
+                        <span class="work-year">2024</span>
+                        <h3>Snake Game — Nokia, Rebuilt</h3>
+                        <p class="work-tag">HTML5 Canvas · Vanilla JS · No frameworks</p>
+                    </header>
+                    <dl class="work-detail">
+                        <div>
+                            <dt>The Challenge</dt>
+                            <dd>Capture the feeling of the original Nokia Snake — tight controls, no input lag — in a browser.</dd>
+                        </div>
+                        <div>
+                            <dt>What I Built</dt>
+                            <dd>HTML5 Canvas game loop with requestAnimationFrame, keyboard + touch controls, local high-score, retro pixel aesthetic.</dd>
+                        </div>
+                    </dl>
+                    <footer class="work-foot">
+                        <a href="https://ravirajhere-snake.vercel.app" target="_blank" rel="noopener noreferrer">
+                            Play snake
+                            <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+                                <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                            </svg>
+                        </a>
+                        <a href="https://github.com/ravirajhere/snake-game" target="_blank" rel="noopener noreferrer" class="work-foot-secondary">
+                            Source ↗
+                        </a>
+                    </footer>
+                </article>
+
+                <!-- Project 3: CLI Portfolio -->
+                <article class="work-item">
+                    <header class="work-head">
+                        <span class="work-year">2024</span>
+                        <h3>CLI Portfolio — <code>npx ravirajhere</code></h3>
+                        <p class="work-tag">Terminal portfolio · Zero dependencies · Node.js</p>
+                    </header>
+                    <dl class="work-detail">
+                        <div>
+                            <dt>The Challenge</dt>
+                            <dd>Recruiters and devs live in the terminal. Why not have a portfolio there too?</dd>
+                        </div>
+                        <div>
+                            <dt>What I Built</dt>
+                            <dd>A Node.js CLI with ANSI colors, typewriter effect, and interactive sections. Installable via a single <code>npx</code> command.</dd>
+                        </div>
+                    </dl>
+                    <footer class="work-foot">
+                        <a href="https://github.com/ravirajhere/cli-portfolio" target="_blank" rel="noopener noreferrer">
+                            View on GitHub
+                            <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+                                <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                            </svg>
+                        </a>
+                        <code class="work-tech">npx ravirajhere</code>
+                    </footer>
+                </article>
+
+                <!-- Project 4: Expense Splitter -->
+                <article class="work-item">
+                    <header class="work-head">
+                        <span class="work-year">2026</span>
+                        <h3>Expense Splitter</h3>
+                        <p class="work-tag">Split bills with friends · localStorage · No backend</p>
+                    </header>
+                    <dl class="work-detail">
+                        <div>
+                            <dt>The Challenge</dt>
+                            <dd>Splitting group expenses fairly is messy — who owes whom, and how much?</dd>
+                        </div>
+                        <div>
+                            <dt>What I Built</dt>
+                            <dd>A simple expense splitter that tracks who paid what and calculates the minimum number of transactions to settle up. Saves data in localStorage — no login, no backend.</dd>
+                        </div>
+                    </dl>
+                    <footer class="work-foot">
+                        <a href="https://expense-splitter-rj.vercel.app/" target="_blank" rel="noopener noreferrer">
+                            Try it
+                            <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+                                <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                            </svg>
+                        </a>
+                        <a href="https://github.com/ravirajhere/expense-splitter" target="_blank" rel="noopener noreferrer" class="work-foot-secondary">
+                            Source ↗
+                        </a>
+                    </footer>
+                </article>
+
+                <!-- Project 5: Weather Now -->
+                <article class="work-item">
+                    <header class="work-head">
+                        <span class="work-year">2026</span>
+                        <h3>Weather Now</h3>
+                        <p class="work-tag">Live weather · Geolocation · Responsive</p>
+                    </header>
+                    <dl class="work-detail">
+                        <div>
+                            <dt>The Challenge</dt>
+                            <dd>Weather apps are cluttered. Wanted something that just shows what matters — now.</dd>
+                        </div>
+                        <div>
+                            <dt>What I Built</dt>
+                            <dd>A clean weather app that uses geolocation and a public weather API to show current conditions. Search any city, see temperature, humidity, and wind.</dd>
+                        </div>
+                    </dl>
+                    <footer class="work-foot">
+                        <a href="https://ravirajhere-weather.vercel.app" target="_blank" rel="noopener noreferrer">
+                            Check weather
+                            <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+                                <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                            </svg>
+                        </a>
+                        <a href="https://github.com/ravirajhere/weather-now" target="_blank" rel="noopener noreferrer" class="work-foot-secondary">
+                            Source ↗
+                        </a>
+                    </footer>
+                </article>
+
+                <!-- Project 6: Password Generator -->
+                <article class="work-item">
+                    <header class="work-head">
+                        <span class="work-year">2026</span>
+                        <h3>Password Generator</h3>
+                        <p class="work-tag">Secure passwords · Strength meter · Copy to clipboard</p>
+                    </header>
+                    <dl class="work-detail">
+                        <div>
+                            <dt>The Challenge</dt>
+                            <dd>Most people reuse weak passwords. Wanted a simple tool that generates strong ones instantly.</dd>
+                        </div>
+                        <div>
+                            <dt>What I Built</dt>
+                            <dd>A password generator with options for length, numbers, symbols, and case. Shows strength meter and copies to clipboard in one click.</dd>
+                        </div>
+                    </dl>
+                    <footer class="work-foot">
+                        <a href="https://rj-password-tool.vercel.app" target="_blank" rel="noopener noreferrer">
+                            Generate password
+                            <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+                                <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                            </svg>
+                        </a>
+                        <a href="https://github.com/ravirajhere/password-tool" target="_blank" rel="noopener noreferrer" class="work-foot-secondary">
+                            Source ↗
+                        </a>
+                    </footer>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section class="section" id="skills" aria-labelledby="skills-heading">
+            <header class="section-head">
+                <span class="section-num">02 / Skills</span>
+                <h2 id="skills-heading">What I know. <em>Honest levels.</em></h2>
+                <p class="section-lede">No fake percentages. Just what I've actually built with.</p>
+            </header>
+            <div class="skills-table" role="table" aria-label="Skills matrix">
+                <div class="skills-row skills-head" role="row">
+                    <span role="columnheader">Skill</span>
+                    <span role="columnheader">Level</span>
+                    <span role="columnheader">Proof</span>
+                </div>
+                <div class="skills-row" role="row">
+                    <span role="cell">HTML / CSS / JS</span>
+                    <span role="cell"><span class="pill pill-working">Working</span></span>
+                    <span role="cell">This site, book reader, snake</span>
+                </div>
+                <div class="skills-row" role="row">
+                    <span role="cell">Git / GitHub</span>
+                    <span role="cell"><span class="pill pill-working">Working</span></span>
+                    <span role="cell">Daily commits, 6 repos</span>
+                </div>
+                <div class="skills-row" role="row">
+                    <span role="cell">Node.js / npm</span>
+                    <span role="cell"><span class="pill pill-working">Working</span></span>
+                    <span role="cell">CLI portfolio</span>
+                </div>
+                <div class="skills-row" role="row">
+                    <span role="cell">Vercel</span>
+                    <span role="cell"><span class="pill pill-working">Working</span></span>
+                    <span role="cell">Deployed 6 projects</span>
+                </div>
+                <div class="skills-row" role="row">
+                    <span role="cell">React</span>
+                    <span role="cell"><span class="pill pill-learning">Learning</span></span>
+                    <span role="cell">Daily practice</span>
+                </div>
+                <div class="skills-row" role="row">
+                    <span role="cell">DSA (C++)</span>
+                    <span role="cell"><span class="pill pill-learning">Learning</span></span>
+                    <span role="cell">Ongoing</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="section contact" id="contact" aria-labelledby="contact-heading">
+            <header class="section-head">
+                <span class="section-num">03 / Contact</span>
+                <h2 id="contact-heading">Let's build something.</h2>
+            </header>
+            <p class="contact-lede">Open to frontend and full-stack internships, plus freelance. I reply in 24h, I don't ghost.</p>
+
+            <div class="contact-primary contact-primary-spaced">
+                <button class="contact-email" id="copyEmail" type="button" aria-label="Copy email to clipboard" data-label="raviraj2k09@gmail.com">
+                    <span id="emailText">raviraj2k09@gmail.com</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                        <rect x="5" y="5" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                        <path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                    </svg>
+                </button>
+                <p class="contact-note">Average reply: 24 hours · Patna, India · Open to remote</p>
+                <div class="contact-cta">
+                    <a href="contact.html?from=recruiter" class="btn btn-dark">Send email</a>
+                    <a href="https://linkedin.com/in/Ravirajhere" target="_blank" rel="noopener noreferrer" class="btn btn-quiet">LinkedIn ↗</a>
+                    <a href="https://github.com/ravirajhere" target="_blank" rel="noopener noreferrer" class="btn btn-quiet">GitHub ↗</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-inner">
+            <div class="footer-col footer-brand-col">
+                <p class="footer-brand">Ravi Raj</p>
+                <p class="footer-tag">1st Year BTech Student. Patna, India.</p>
+            </div>
+            <div class="footer-col">
+                <p class="footer-label">Navigate</p>
+                <ul>
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <p class="footer-label">Projects</p>
+                <ul>
+                    <li><a href="https://ravirajhere-author.vercel.app" target="_blank" rel="noopener noreferrer">Author site</a></li>
+                    <li><a href="https://ravirajhere-snake.vercel.app" target="_blank" rel="noopener noreferrer">Snake game</a></li>
+                    <li><a href="https://github.com/ravirajhere/cli-portfolio" target="_blank" rel="noopener noreferrer">CLI portfolio</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <p class="footer-label">Elsewhere</p>
+                <ul>
+                    <li><a href="https://github.com/ravirajhere" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    <li><a href="https://linkedin.com/in/Ravirajhere" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                    <li><a href="mailto:raviraj2k09@gmail.com">Email</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© <span id="year">2026</span> Ravi Raj. Hand-written in Patna.</p>
+            <p class="footer-kbd">Press <kbd>K</kbd> to navigate · Made with ❤️ &amp; Curiosity</p>
+        </div>
+    </footer>
+
+    <!-- COMMAND PALETTE -->
+    <div class="cmd-palette" id="cmdPalette" role="dialog" aria-modal="true" aria-labelledby="cmdLabel" hidden>
+        <div class="cmd-overlay" id="cmdOverlay"></div>
+        <div class="cmd-box">
+            <label for="cmdInput" id="cmdLabel" class="sr-only">Jump to section</label>
+            <input id="cmdInput" type="text" placeholder="Jump to… (work, skills, contact)" autocomplete="off" spellcheck="false" />
+            <ul class="cmd-list" id="cmdList" role="listbox" aria-label="Sections">
+                <li role="option" data-target="#work" tabindex="-1"><span>01</span>Work</li>
+                <li role="option" data-target="#skills" tabindex="-1"><span>02</span>Skills</li>
+                <li role="option" data-target="#contact" tabindex="-1"><span>03</span>Contact</li>
+                <li role="option" data-target="resume-pdf.html" tabindex="-1"><span>04</span>Resume</li>
+            </ul>
+            <div class="cmd-foot">
+                <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+                <span><kbd>↵</kbd> open</span>
+                <span><kbd>esc</kbd> close</span>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <!-- Skills -->
-  <section class="section" id="skills">
-    <h2>Skills</h2>
-    <p class="section-sub">What I actually use to build things.</p>
-    <div class="skills-grid">
-      <span class="skill">JavaScript</span>
-      <span class="skill">HTML5</span>
-      <span class="skill">CSS3</span>
-      <span class="skill">Git &amp; GitHub</span>
-      <span class="skill">Vercel</span>
-      <span class="skill">REST APIs</span>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section class="section" id="about">
-    <h2>About</h2>
-    <p class="about-text">
-      I'm a first-year BTech student from Patna, learning frontend development by building real projects instead of only watching tutorials. I write everything by hand — no frameworks, no build tools — because I want to understand how the web works before adding layers on top of it.
-    </p>
-    <p class="about-text">
-      Right now I'm learning React and building small projects daily to practice.
-    </p>
-  </section>
-
-  <!-- Contact -->
-  <section class="section" id="contact">
-    <h2>Contact</h2>
-    <p class="section-sub">Open to internships and collaborations.</p>
-    <div class="contact-links">
-      <a href="mailto:raviraj2k09@gmail.com">📧 Email</a>
-      <a href="https://github.com/ravirajhere" target="_blank" rel="noopener">💻 GitHub</a>
-      <a href="https://linkedin.com/in/ravirajhere" target="_blank" rel="noopener">🔗 LinkedIn</a>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <p>Built by hand with HTML, CSS &amp; JavaScript. © 2026 Ravi Raj.</p>
-  </footer>
-
+    <script src="js/script.js" defer></script>
 </body>
 </html>
