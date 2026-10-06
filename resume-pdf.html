@@ -3,35 +3,31 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ravi Raj — Frontend Developer Resume</title>
+    <title>Ravi Raj — Resume | BTech CSE Student & Aspiring Web Developer</title>
 
     <!-- ====== SEO ====== -->
-    <meta name="description" content="Resume of Ravi Raj — 1st year BTech student and frontend developer from Patna, India. HTML5, CSS3, JavaScript, Node.js. 6 live projects. Open to internships." />
+    <meta name="description" content="Resume of Ravi Raj — 1st year BTech CSE student from Patna, India. Self-taught web developer with 6 live projects. Open to internships and collaborations." />
     <meta name="author" content="Ravi Raj" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#ffffff" />
-    <link rel="canonical" href="https://ravirajhere.vercel.app/resume-pdf.html" />
+    <link rel="canonical" href="https://ravirajhere-portfolio.vercel.app/resume-pdf.html" />
 
     <!-- ====== OPEN GRAPH ====== -->
-    <meta property="og:title" content="Ravi Raj — Frontend Developer Resume" />
-    <meta property="og:description" content="1st year BTech student and frontend developer from Patna, India. Hand-written HTML, CSS, JavaScript. Open to internships." />
+    <meta property="og:title" content="Ravi Raj — Resume | BTech CSE Student" />
+    <meta property="og:description" content="1st year BTech CSE student from Patna, India. Self-taught web developer. 6 live projects. Open to internships." />
     <meta property="og:type" content="profile" />
-    <meta property="og:url" content="https://ravirajhere.vercel.app/resume-pdf.html" />
+    <meta property="og:url" content="https://ravirajhere-portfolio.vercel.app/resume-pdf.html" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Ravi Raj — Resume" />
-    <meta name="twitter:description" content="Frontend developer from Patna, India." />
+    <meta name="twitter:description" content="1st year BTech CSE student from Patna, India. Aspiring web developer." />
 
     <!-- ====== FAVICON ====== -->
     <link rel="icon" type="image/png" href="assets/favicon.png" />
 
-    <!-- ====== FONTS ====== -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-
     <style>
         /* ============================================================
            RESUME — SINGLE COLUMN · ATS-FRIENDLY · PRINT-OPTIMIZED
+           No external fonts. No icons. No tables. ATS-safe.
            ============================================================ */
 
         /* ---------- RESET ---------- */
@@ -41,12 +37,10 @@
             box-sizing: border-box;
         }
 
-        html {
-            -webkit-text-size-adjust: 100%;
-        }
+        html { -webkit-text-size-adjust: 100%; }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             font-size: 14px;
             line-height: 1.55;
             color: #0f172a;
@@ -58,8 +52,16 @@
 
         img { max-width: 100%; display: block; }
         a { color: inherit; text-decoration: none; }
+        code {
+            font-family: 'SF Mono', Monaco, Consolas, monospace;
+            font-size: 0.92em;
+            background: #f1f5f9;
+            padding: 1px 5px;
+            border-radius: 3px;
+            color: #0f172a;
+        }
 
-        /* ---------- FOCUS STATES ---------- */
+        /* ---------- FOCUS ---------- */
         :focus-visible {
             outline: 2px solid #0f2e5c;
             outline-offset: 2px;
@@ -79,10 +81,7 @@
             z-index: 10000;
             transition: top 0.15s ease;
         }
-
-        .skip-link:focus {
-            top: 16px;
-        }
+        .skip-link:focus { top: 16px; }
 
         /* ---------- ACTION BAR ---------- */
         .action-bar {
@@ -108,32 +107,19 @@
             text-decoration: none;
         }
 
-        .btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-
         .btn-primary {
             background: #0f2e5c;
             color: #fff;
             border-color: #0f2e5c;
         }
-
-        .btn-primary:hover:not(:disabled) {
-            background: #0a2346;
-            border-color: #0a2346;
-        }
+        .btn-primary:hover { background: #0a2346; border-color: #0a2346; }
 
         .btn-quiet {
             background: #fff;
             color: #334155;
             border-color: #cbd5e1;
         }
-
-        .btn-quiet:hover {
-            border-color: #94a3b8;
-            color: #0f172a;
-        }
+        .btn-quiet:hover { border-color: #94a3b8; color: #0f172a; }
 
         /* ---------- RESUME SHEET ---------- */
         .resume {
@@ -149,13 +135,13 @@
 
         /* ---------- HEADER ---------- */
         .header {
-            padding-bottom: 22px;
+            padding-bottom: 20px;
             border-bottom: 2px solid #0f172a;
-            margin-bottom: 28px;
+            margin-bottom: 26px;
         }
 
         .name {
-            font-size: 32px;
+            font-size: 30px;
             font-weight: 700;
             color: #0f172a;
             letter-spacing: -0.025em;
@@ -164,46 +150,38 @@
         }
 
         .role {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
             color: #0f2e5c;
-            letter-spacing: 0.02em;
+            letter-spacing: 0.04em;
             text-transform: uppercase;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
 
         .contact-line {
-            font-size: 13px;
+            font-size: 12.5px;
             color: #334155;
             display: flex;
             flex-wrap: wrap;
-            gap: 4px 14px;
+            gap: 4px 12px;
             align-items: baseline;
         }
 
-        .contact-line .dot {
-            color: #cbd5e1;
-        }
+        .contact-line .dot { color: #cbd5e1; }
 
         .contact-line a {
             border-bottom: 1px dotted #94a3b8;
             padding-bottom: 1px;
             transition: border-color 0.15s ease, color 0.15s ease;
         }
-
         .contact-line a:hover {
             border-bottom-color: #0f2e5c;
             color: #0f2e5c;
         }
 
         /* ---------- SECTION ---------- */
-        .section {
-            margin-bottom: 28px;
-        }
-
-        .section:last-child {
-            margin-bottom: 0;
-        }
+        .section { margin-bottom: 24px; }
+        .section:last-child { margin-bottom: 0; }
 
         .section-title {
             font-size: 11px;
@@ -211,57 +189,48 @@
             color: #0f172a;
             letter-spacing: 0.14em;
             text-transform: uppercase;
-            margin-bottom: 14px;
-            padding-bottom: 6px;
+            margin-bottom: 12px;
+            padding-bottom: 5px;
             border-bottom: 1px solid #e2e8f0;
         }
 
         .section p {
-            font-size: 13.5px;
+            font-size: 13px;
             color: #334155;
-            line-height: 1.7;
+            line-height: 1.65;
         }
 
-        /* ---------- SKILLS ---------- */
-        .skills-list {
+        /* ---------- SKILLS (category rows) ---------- */
+        .skills-grid {
             display: flex;
             flex-direction: column;
-            gap: 5px;
+            gap: 8px;
         }
 
-        .skill-row {
+        .skill-cat {
             display: grid;
-            grid-template-columns: 210px 100px 90px;
-            gap: 14px;
+            grid-template-columns: 150px 1fr;
+            gap: 16px;
+            font-size: 13px;
             align-items: baseline;
-            font-size: 13.5px;
         }
 
-        .skill-name {
-            font-weight: 600;
+        .skill-cat-label {
+            font-weight: 700;
             color: #0f172a;
+            font-size: 12.5px;
         }
 
-        .skill-level {
+        .skill-cat-items {
             color: #334155;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
+            line-height: 1.6;
         }
 
-        .skill-since {
-            color: #64748b;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-        }
+        .skill-cat-items .sep { color: #cbd5e1; margin: 0 6px; }
 
-        /* ---------- PROJECT ---------- */
-        .project {
-            margin-bottom: 20px;
-        }
-
-        .project:last-child {
-            margin-bottom: 0;
-        }
+        /* ---------- PROJECTS ---------- */
+        .project { margin-bottom: 16px; }
+        .project:last-child { margin-bottom: 0; }
 
         .project-head {
             display: flex;
@@ -269,46 +238,43 @@
             align-items: baseline;
             flex-wrap: wrap;
             gap: 6px;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
 
         .project-name {
-            font-size: 14.5px;
+            font-size: 13.5px;
             font-weight: 700;
             color: #0f172a;
         }
 
         .project-year {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11.5px;
+            font-size: 11px;
             color: #64748b;
             white-space: nowrap;
+            font-variant-numeric: tabular-nums;
         }
 
         .project-tag {
-            font-size: 12px;
+            font-size: 11.5px;
             color: #64748b;
-            font-family: 'JetBrains Mono', monospace;
-            margin-bottom: 6px;
+            margin-bottom: 5px;
+            letter-spacing: 0.01em;
         }
 
         .project-desc {
-            font-size: 13px;
+            font-size: 12.5px;
             color: #334155;
-            line-height: 1.65;
-            margin-bottom: 6px;
+            line-height: 1.6;
+            margin-bottom: 5px;
         }
 
-        .project-desc strong {
-            color: #0f172a;
-            font-weight: 600;
-        }
+        .project-desc strong { color: #0f172a; font-weight: 600; }
 
         .project-links {
-            font-size: 12.5px;
+            font-size: 12px;
             display: flex;
             flex-wrap: wrap;
-            gap: 16px;
+            gap: 14px;
         }
 
         .project-links a {
@@ -318,19 +284,11 @@
             padding-bottom: 1px;
             transition: border-color 0.15s ease;
         }
-
-        .project-links a:hover {
-            border-bottom-style: solid;
-        }
+        .project-links a:hover { border-bottom-style: solid; }
 
         /* ---------- EDUCATION ---------- */
-        .edu-item {
-            margin-bottom: 12px;
-        }
-
-        .edu-item:last-child {
-            margin-bottom: 0;
-        }
+        .edu-item { margin-bottom: 12px; }
+        .edu-item:last-child { margin-bottom: 0; }
 
         .edu-head {
             display: flex;
@@ -341,56 +299,47 @@
         }
 
         .edu-title {
-            font-size: 13.5px;
+            font-size: 13px;
             font-weight: 700;
             color: #0f172a;
         }
 
         .edu-year {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11.5px;
+            font-size: 11px;
             color: #64748b;
             white-space: nowrap;
+            font-variant-numeric: tabular-nums;
         }
 
         .edu-school {
-            font-size: 13px;
+            font-size: 12.5px;
             color: #334155;
             margin-top: 2px;
         }
 
         .edu-note {
-            font-size: 12px;
+            font-size: 11.5px;
             color: #64748b;
-            font-family: 'JetBrains Mono', monospace;
-            margin-top: 3px;
+            margin-top: 2px;
         }
 
         /* ---------- LANGUAGES ---------- */
         .languages {
-            font-size: 13.5px;
+            font-size: 13px;
             color: #334155;
             display: flex;
             flex-wrap: wrap;
             gap: 4px 20px;
         }
-
-        .lang-item {
-            font-weight: 600;
-            color: #0f172a;
-        }
-
-        .lang-level {
-            color: #64748b;
-            font-weight: 400;
-        }
+        .lang-item { font-weight: 600; color: #0f172a; }
+        .lang-level { color: #64748b; font-weight: 400; }
 
         /* ---------- CONNECT ---------- */
         .connect-list {
             display: flex;
             flex-wrap: wrap;
             gap: 8px 28px;
-            font-size: 13px;
+            font-size: 12.5px;
         }
 
         .connect-list a {
@@ -400,31 +349,16 @@
             padding-bottom: 1px;
             transition: color 0.15s ease, border-color 0.15s ease;
         }
-
         .connect-list a:hover {
             color: #0f2e5c;
             border-bottom-color: #0f2e5c;
         }
 
-        /* ---------- FOOTER ---------- */
-        .footer {
-            margin-top: 32px;
-            padding-top: 16px;
-            border-top: 1px solid #e2e8f0;
-            text-align: center;
-            font-size: 11px;
-            color: #94a3b8;
-            font-family: 'JetBrains Mono', monospace;
-            letter-spacing: 0.04em;
-        }
-
         /* ============================================================
-           RESPONSIVE — MOBILE
+           RESPONSIVE
            ============================================================ */
         @media (max-width: 640px) {
-            body {
-                padding: 20px 12px 40px;
-            }
+            body { padding: 20px 12px 40px; }
 
             .action-bar {
                 flex-direction: column;
@@ -438,38 +372,11 @@
                 min-height: 48px;
             }
 
-            .resume {
-                padding: 32px 24px;
-                border-radius: 0;
-                box-shadow: none;
-            }
+            .resume { padding: 32px 24px; border-radius: 0; box-shadow: none; }
+            .name { font-size: 25px; }
 
-            .name {
-                font-size: 26px;
-            }
-
-            .role {
-                margin-bottom: 12px;
-            }
-
-            .skill-row {
-                grid-template-columns: 1fr auto;
-                gap: 4px 12px;
-            }
-
-            .skill-name {
-                grid-column: 1;
-            }
-
-            .skill-level {
-                grid-column: 2;
-                text-align: right;
-            }
-
-            .skill-since {
-                grid-column: 1 / -1;
-                font-size: 11px;
-            }
+            .skill-cat { grid-template-columns: 1fr; gap: 2px; }
+            .skill-cat-label { font-size: 12px; }
 
             .project-head,
             .edu-head {
@@ -478,27 +385,18 @@
                 gap: 2px;
             }
 
-            .contact-line {
-                flex-direction: column;
-                gap: 4px;
-            }
+            .contact-line { flex-direction: column; gap: 4px; }
+            .contact-line .dot { display: none; }
 
-            .contact-line .dot {
-                display: none;
-            }
-
-            .connect-list {
-                flex-direction: column;
-                gap: 6px;
-            }
+            .connect-list { flex-direction: column; gap: 6px; }
         }
 
         /* ============================================================
-           PRINT — FORCE LIGHT, COMPACT, 1 PAGE
+           PRINT — A4, 1 PAGE
            ============================================================ */
         @page {
             size: A4;
-            margin: 16mm 18mm;
+            margin: 14mm 16mm;
         }
 
         @media print {
@@ -506,14 +404,12 @@
                 background: #fff;
                 color: #000;
                 padding: 0;
-                font-size: 11pt;
-                line-height: 1.4;
+                font-size: 10.5pt;
+                line-height: 1.38;
             }
 
             .action-bar,
-            .skip-link {
-                display: none;
-            }
+            .skip-link { display: none; }
 
             .resume {
                 max-width: 100%;
@@ -532,63 +428,57 @@
 
             .project-links a,
             .contact-line a,
-            .connect-list a {
-                border-bottom: none;
+            .connect-list a { border-bottom: none; }
+
+            /* Show URLs after link text in print — so recruiters can copy them */
+            .project-links a::after,
+            .contact-line a[href^="https"]::after,
+            .connect-list a::after {
+                content: " (" attr(href) ")";
+                font-size: 0.82em;
+                color: #666;
+                font-weight: 400;
+                border: none;
             }
 
-            .section {
-                margin-bottom: 16px;
-            }
+            .section { margin-bottom: 16px; }
 
             .project,
             .edu-item,
-            .skill-row {
-                page-break-inside: avoid;
-            }
+            .skill-cat { page-break-inside: avoid; }
 
             .header {
-                margin-bottom: 16px;
-                padding-bottom: 12px;
+                margin-bottom: 14px;
+                padding-bottom: 10px;
+                border-bottom: 1px solid #000;
             }
 
-            .name {
-                font-size: 22pt;
-                color: #000;
-            }
-
-            .role {
-                font-size: 11pt;
-                color: #333;
-            }
+            .name { font-size: 20pt; color: #000; }
+            .role { font-size: 10pt; color: #333; margin-bottom: 8px; }
 
             .section-title {
-                font-size: 9.5pt;
-                margin-bottom: 8px;
+                font-size: 9pt;
+                margin-bottom: 7px;
+                padding-bottom: 3px;
             }
 
             .section p,
-            .skill-row,
+            .skill-cat,
             .project-desc,
             .edu-title,
             .languages,
-            .connect-list {
-                font-size: 10.5pt;
-            }
+            .connect-list { font-size: 10pt; }
 
-            .skill-level,
-            .skill-since,
+            .skill-cat-label { font-size: 10pt; }
+
+            .skill-cat-items,
+            .project-tag,
             .project-year,
             .edu-year,
-            .project-tag,
-            .edu-note {
-                color: #555;
-            }
+            .edu-note,
+            .contact-line { color: #444; }
 
-            .footer {
-                margin-top: 20px;
-                padding-top: 12px;
-                font-size: 9pt;
-            }
+            code { background: transparent; padding: 0; }
         }
 
         /* ============================================================
@@ -604,40 +494,35 @@
 </head>
 <body>
 
-    <!-- ============================================================
-         SKIP LINK
-    ============================================================ -->
     <a href="#main" class="skip-link">Skip to resume content</a>
 
-    <!-- ============================================================
-         ACTION BAR (hidden on print)
-    ============================================================ -->
+    <!-- ===== ACTION BAR ===== -->
     <div class="action-bar">
-        <a href="index.html" class="btn btn-quiet">
+        <a href="https://ravirajhere-portfolio.vercel.app" class="btn btn-quiet">
             ← Back to portfolio
         </a>
-        <button class="btn btn-primary" id="printBtn" type="button" aria-label="Print resume or save as PDF">
-            Download PDF
+        <button class="btn btn-primary" id="printBtn" type="button" aria-label="Save resume as PDF">
+            Save as PDF
         </button>
     </div>
 
-    <!-- ============================================================
-         RESUME
-    ============================================================ -->
+    <!-- ===== RESUME ===== -->
     <main class="resume" id="main">
 
         <!-- ===== HEADER ===== -->
         <header class="header">
             <h1 class="name">RAVI RAJ</h1>
-            <p class="role">Aspiring BTech Student · Frontend Developer</p>
+            <p class="role">BTech CSE Student · Aspiring Web Developer</p>
             <p class="contact-line">
                 <span>Patna, India</span>
                 <span class="dot" aria-hidden="true">·</span>
                 <a href="mailto:raviraj2k09@gmail.com">raviraj2k09@gmail.com</a>
                 <span class="dot" aria-hidden="true">·</span>
-                <a href="https://ravirajhere.vercel.app" target="_blank" rel="noopener noreferrer">ravirajhere.vercel.app</a>
+                <a href="https://ravirajhere-portfolio.vercel.app" target="_blank" rel="noopener noreferrer">ravirajhere-portfolio.vercel.app</a>
                 <span class="dot" aria-hidden="true">·</span>
                 <a href="https://github.com/ravirajhere" target="_blank" rel="noopener noreferrer">github.com/ravirajhere</a>
+                <span class="dot" aria-hidden="true">·</span>
+                <a href="https://linkedin.com/in/ravirajhere" target="_blank" rel="noopener noreferrer">linkedin.com/in/ravirajhere</a>
             </p>
         </header>
 
@@ -645,58 +530,42 @@
         <section class="section">
             <h2 class="section-title">Summary</h2>
             <p>
-                Aspiring BTech student from Patna, India. Built and shipped six
-                live projects — a bilingual book reader, a Nokia Snake remake, a
-                CLI portfolio, an expense splitter, a weather app, and a password
-                generator. <strong>Daily commits since 2024.</strong> Currently
-                learning React and DSA. Seeking a frontend internship where I can
-                ship real work.
+                1st year BTech CSE student from Patna, India. Self-taught web
+                developer — built <strong>6 live projects</strong> with hand-written
+                HTML, CSS, and JavaScript while in school. Comfortable with Git,
+                GitHub, and deploying to Vercel. Currently learning React, Node.js,
+                and DSA in C++. Learning in public since 2024. Open to internships,
+                collaborations, and feedback.
             </p>
         </section>
 
         <!-- ===== SKILLS ===== -->
         <section class="section">
-            <h2 class="section-title">Skills</h2>
-            <div class="skills-list">
-                <div class="skill-row">
-                    <span class="skill-name">HTML5</span>
-                    <span class="skill-level">Working</span>
-                    <span class="skill-since">since 2024</span>
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-cat">
+                    <span class="skill-cat-label">Languages</span>
+                    <span class="skill-cat-items">
+                        HTML5 <span class="sep">·</span> CSS3 <span class="sep">·</span> JavaScript (ES6+) <span class="sep">·</span> C++ (learning)
+                    </span>
                 </div>
-                <div class="skill-row">
-                    <span class="skill-name">CSS3</span>
-                    <span class="skill-level">Working</span>
-                    <span class="skill-since">since 2024</span>
+                <div class="skill-cat">
+                    <span class="skill-cat-label">Frontend</span>
+                    <span class="skill-cat-items">
+                        Responsive design <span class="sep">·</span> Flexbox <span class="sep">·</span> CSS Grid <span class="sep">·</span> Accessibility <span class="sep">·</span> DOM manipulation <span class="sep">·</span> Canvas API <span class="sep">·</span> Web Speech API
+                    </span>
                 </div>
-                <div class="skill-row">
-                    <span class="skill-name">JavaScript</span>
-                    <span class="skill-level">Working</span>
-                    <span class="skill-since">since 2024</span>
+                <div class="skill-cat">
+                    <span class="skill-cat-label">Tools</span>
+                    <span class="skill-cat-items">
+                        Git <span class="sep">·</span> GitHub <span class="sep">·</span> Vercel <span class="sep">·</span> VS Code <span class="sep">·</span> Chrome DevTools
+                    </span>
                 </div>
-                <div class="skill-row">
-                    <span class="skill-name">Git &amp; GitHub</span>
-                    <span class="skill-level">Working</span>
-                    <span class="skill-since">since 2024</span>
-                </div>
-                <div class="skill-row">
-                    <span class="skill-name">Responsive design</span>
-                    <span class="skill-level">Working</span>
-                    <span class="skill-since">since 2024</span>
-                </div>
-                <div class="skill-row">
-                    <span class="skill-name">Node.js</span>
-                    <span class="skill-level">Learning</span>
-                    <span class="skill-since">since 2024</span>
-                </div>
-                <div class="skill-row">
-                    <span class="skill-name">React</span>
-                    <span class="skill-level">Learning</span>
-                    <span class="skill-since">since 2026</span>
-                </div>
-                <div class="skill-row">
-                    <span class="skill-name">DSA (C++)</span>
-                    <span class="skill-level">Learning</span>
-                    <span class="skill-since">since 2026</span>
+                <div class="skill-cat">
+                    <span class="skill-cat-label">Currently learning</span>
+                    <span class="skill-cat-items">
+                        React <span class="sep">·</span> Node.js <span class="sep">·</span> DSA (C++)
+                    </span>
                 </div>
             </div>
         </section>
@@ -707,37 +576,34 @@
 
             <article class="project">
                 <div class="project-head">
-                    <span class="project-name">A Boy Who Never Thought — Book Reader</span>
-                    <span class="project-year">2024 — Now</span>
+                    <span class="project-name">Author Website + Book Reader</span>
+                    <span class="project-year">2024 — Present</span>
                 </div>
-                <p class="project-tag">HTML · CSS · JavaScript · Web Speech API · GitHub Actions</p>
+                <p class="project-tag">HTML · CSS · JavaScript · Web Speech API</p>
                 <p class="project-desc">
-                    Bilingual memoir reader (<strong>11 chapters</strong>, English +
-                    Hinglish). Custom footnotes, reading progress, audio via Web
-                    Speech API, keyboard navigation. <strong>Server-side PDF
-                    generation</strong> via GitHub Actions — auto-generated on every
-                    push. Zero frameworks.
+                    Bilingual book reader — <strong>11 chapters in English and Hindi</strong>.
+                    Built to learn localStorage, the Web Speech API, and keyboard
+                    navigation. Custom reading-progress save and audio playback.
                 </p>
                 <div class="project-links">
-                    <a href="https://ravirajhere-author.vercel.app/book.html" target="_blank" rel="noopener noreferrer">Live →</a>
-                    <a href="https://ravirajhere-author.vercel.app" target="_blank" rel="noopener noreferrer">Author site →</a>
+                    <a href="https://ravirajhere-author.vercel.app/book.html" target="_blank" rel="noopener noreferrer">Read the book →</a>
                     <a href="https://github.com/ravirajhere/author-website" target="_blank" rel="noopener noreferrer">Source →</a>
                 </div>
             </article>
 
             <article class="project">
                 <div class="project-head">
-                    <span class="project-name">Snake Game — Nokia Retro</span>
+                    <span class="project-name">Snake Game — Nokia, Rebuilt</span>
                     <span class="project-year">2024</span>
                 </div>
-                <p class="project-tag">HTML5 Canvas · Vanilla JavaScript · Zero frameworks</p>
+                <p class="project-tag">HTML5 Canvas · Vanilla JavaScript</p>
                 <p class="project-desc">
-                    Classic Nokia Snake rebuilt for the browser. Canvas-based rendering,
-                    retro LCD aesthetic, touch + keyboard controls, local high-score.
-                    <strong>No libraries, no build step.</strong>
+                    Nokia Snake rebuilt for the browser to learn
+                    <strong>HTML5 Canvas and game loops</strong>. Touch + keyboard
+                    controls, local high-score, retro pixel aesthetic.
                 </p>
                 <div class="project-links">
-                    <a href="https://ravirajhere-snake.vercel.app" target="_blank" rel="noopener noreferrer">Play →</a>
+                    <a href="https://ravirajhere-snake.vercel.app" target="_blank" rel="noopener noreferrer">Play snake →</a>
                     <a href="https://github.com/ravirajhere/snake-game" target="_blank" rel="noopener noreferrer">Source →</a>
                 </div>
             </article>
@@ -745,13 +611,13 @@
             <article class="project">
                 <div class="project-head">
                     <span class="project-name">CLI Portfolio</span>
-                    <span class="project-year">2025</span>
+                    <span class="project-year">2024</span>
                 </div>
-                <p class="project-tag">Node.js · ANSI colors · Typewriter effect · Zero dependencies</p>
+                <p class="project-tag">Node.js · ANSI colors · Zero dependencies</p>
                 <p class="project-desc">
-                    Terminal-based portfolio. No npm dependencies — pure Node.js.
+                    Terminal portfolio — my first <strong>Node.js project</strong>.
                     Typewriter animations, ANSI colors, keyboard navigation.
-                    <strong>Install via <code>npx ravirajhere</code>.</strong>
+                    Installable via <code>npx ravirajhere</code>.
                 </p>
                 <div class="project-links">
                     <a href="https://github.com/ravirajhere/cli-portfolio" target="_blank" rel="noopener noreferrer">Source →</a>
@@ -765,12 +631,12 @@
                 </div>
                 <p class="project-tag">HTML · CSS · JavaScript · localStorage</p>
                 <p class="project-desc">
-                    Split group expenses fairly. Tracks who paid what and calculates
-                    the minimum transactions to settle up. <strong>No backend, no
-                    login</strong> — data stays in localStorage.
+                    Splits group expenses fairly and finds the minimum transactions
+                    to settle up. Built to practice <strong>algorithms and
+                    localStorage</strong>. No backend, no login.
                 </p>
                 <div class="project-links">
-                    <a href="https://expense-splitter-rj.vercel.app/" target="_blank" rel="noopener noreferrer">Live →</a>
+                    <a href="https://expense-splitter-rj.vercel.app/" target="_blank" rel="noopener noreferrer">Try it →</a>
                     <a href="https://github.com/ravirajhere/expense-splitter" target="_blank" rel="noopener noreferrer">Source →</a>
                 </div>
             </article>
@@ -782,12 +648,12 @@
                 </div>
                 <p class="project-tag">HTML · CSS · JavaScript · Public API · Geolocation</p>
                 <p class="project-desc">
-                    Clean weather app with geolocation and city search. Shows
-                    temperature, humidity, and wind. <strong>Fetches live data</strong>
-                    from a public weather API.
+                    Weather app — my first project with <strong>Fetch API and
+                    async/await</strong>. Geolocation + city search, live data from a
+                    public weather API.
                 </p>
                 <div class="project-links">
-                    <a href="https://ravirajhere-weather.vercel.app" target="_blank" rel="noopener noreferrer">Live →</a>
+                    <a href="https://ravirajhere-weather.vercel.app" target="_blank" rel="noopener noreferrer">Check weather →</a>
                     <a href="https://github.com/ravirajhere/weather-now" target="_blank" rel="noopener noreferrer">Source →</a>
                 </div>
             </article>
@@ -799,12 +665,12 @@
                 </div>
                 <p class="project-tag">HTML · CSS · JavaScript · Clipboard API</p>
                 <p class="project-desc">
-                    Secure password generator with length and character options.
-                    Shows strength meter and <strong>copies to clipboard</strong> in
-                    one click.
+                    Password generator with length and character options, strength
+                    meter, and one-click copy. Built to learn the
+                    <strong>Clipboard API</strong> and entropy rules.
                 </p>
                 <div class="project-links">
-                    <a href="https://rj-password-tool.vercel.app" target="_blank" rel="noopener noreferrer">Live →</a>
+                    <a href="https://rj-password-tool.vercel.app" target="_blank" rel="noopener noreferrer">Generate password →</a>
                     <a href="https://github.com/ravirajhere/password-tool" target="_blank" rel="noopener noreferrer">Source →</a>
                 </div>
             </article>
@@ -816,8 +682,8 @@
 
             <div class="edu-item">
                 <div class="edu-head">
-                    <span class="edu-title">Senior Secondary (Class 12)</span>
-                    <span class="edu-year">Completed 2026</span>
+                    <span class="edu-title">Senior Secondary (Class 12) — PCM</span>
+                    <span class="edu-year">Completed Feb 2026</span>
                 </div>
                 <p class="edu-school">Udaan International School, Begusarai · CBSE</p>
                 <p class="edu-note">Physics · Chemistry · Mathematics</p>
@@ -846,47 +712,31 @@
         <section class="section">
             <h2 class="section-title">Connect</h2>
             <div class="connect-list">
-                <a href="https://linkedin.com/in/Ravirajhere" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+                <a href="https://linkedin.com/in/ravirajhere" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
                 <a href="https://github.com/ravirajhere" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-                <a href="https://ravirajhere.vercel.app" target="_blank" rel="noopener noreferrer">Website ↗</a>
+                <a href="https://ravirajhere-portfolio.vercel.app" target="_blank" rel="noopener noreferrer">Portfolio ↗</a>
             </div>
         </section>
 
-        <!-- ===== FOOTER ===== -->
-        <footer class="footer">
-            © <span id="year">2026</span> Ravi Raj Singh · Updated 2026
-        </footer>
-
     </main>
 
-    <!-- ============================================================
-         SCRIPTS
-    ============================================================ -->
+    <!-- ===== SCRIPTS ===== -->
     <script>
         (function () {
             'use strict';
-
-            /* ===== YEAR ===== */
-            const yearEl = document.getElementById('year');
-            if (yearEl) {
-                yearEl.textContent = String(new Date().getFullYear());
-            }
-
-            /* ===== PDF DOWNLOAD → BROWSER PRINT ===== */
             const printBtn = document.getElementById('printBtn');
-
             if (printBtn) {
                 printBtn.addEventListener('click', function () {
                     window.print();
                 });
             }
-
         })();
     </script>
-<script>
-  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-</script>
-<script defer src="/_vercel/insights/script.js"></script>
+
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
 
 </body>
 </html>
