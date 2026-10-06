@@ -1,0 +1,540 @@
+/* ==========================================================================
+   RAVI RAJ — 404 PAGE STYLESHEET
+   Design: Editorial Developer · Monochrome + Amber
+   Author: Ravi Raj
+   Version: 1.0
+   ========================================================================== */
+
+/* ==========================================================================
+   1. DESIGN TOKENS (same as style.css)
+   ========================================================================== */
+:root {
+    /* --- COLOR: DARK WORLD --- */
+    --dark-bg:            #0a0a0a;
+    --dark-bg-soft:       #111111;
+    --dark-bg-elev:       #171717;
+    --dark-border:        rgba(255, 255, 255, 0.08);
+    --dark-border-strong: rgba(255, 255, 255, 0.14);
+    --dark-text:          #ededed;
+    --dark-text-soft:     #a3a3a3;
+    --dark-text-muted:    #737373;
+
+    /* --- ACCENT --- */
+    --accent:             #b45309;
+    --accent-soft:        rgba(180, 83, 9, 0.10);
+    --ink:                #ededed;
+
+    /* --- STATUS --- */
+    --live:               #16a34a;
+
+    /* --- TYPOGRAPHY --- */
+    --font-sans:          'Inter', system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --font-serif:         'Source Serif 4', Georgia, "Times New Roman", serif;
+    --font-mono:          'JetBrains Mono', 'SF Mono', Consolas, monospace;
+
+    --fs-xs:              0.75rem;
+    --fs-sm:              0.875rem;
+    --fs-base:            1rem;
+    --fs-md:              1.0625rem;
+    --fs-lg:              1.125rem;
+    --fs-xl:              1.25rem;
+    --fs-2xl:             1.5rem;
+    --fs-3xl:             2rem;
+    --fs-4xl:             clamp(2.25rem, 5vw, 3.75rem);
+    --fs-5xl:             clamp(2.75rem, 7vw, 5rem);
+    --fs-mega:            clamp(5rem, 18vw, 12rem);
+
+    /* --- SPACING --- */
+    --space-1:            0.25rem;
+    --space-2:            0.5rem;
+    --space-3:            0.75rem;
+    --space-4:            1rem;
+    --space-5:            1.25rem;
+    --space-6:            1.5rem;
+    --space-8:            2rem;
+    --space-10:           2.5rem;
+    --space-12:           3rem;
+    --space-16:           4rem;
+    --space-20:           5rem;
+
+    /* --- LAYOUT --- */
+    --max-width:          720px;
+
+    /* --- RADII --- */
+    --r-sm:               2px;
+    --r-md:               4px;
+    --r-lg:               6px;
+    --r-full:             999px;
+
+    /* --- TRANSITIONS --- */
+    --ease:               cubic-bezier(0.4, 0, 0.2, 1);
+    --t-fast:             150ms;
+    --t-base:             250ms;
+    --t-slow:             500ms;
+}
+
+/* ==========================================================================
+   2. RESET
+   ========================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body.page-404 {
+    font-family: var(--font-sans);
+    font-size: var(--fs-base);
+    line-height: 1.6;
+    color: var(--dark-text);
+    background: var(--dark-bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+img, svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--t-fast) var(--ease);
+}
+
+button {
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+kbd {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    background: var(--dark-border);
+    border: 1px solid var(--dark-border-strong);
+    padding: 0.1em 0.45em;
+    border-radius: var(--r-sm);
+    font-weight: 500;
+    color: var(--dark-text-soft);
+}
+
+::selection {
+    background: var(--accent);
+    color: #fff;
+}
+
+/* ==========================================================================
+   3. ACCESSIBILITY
+   ========================================================================== */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 16px;
+    background: var(--accent);
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: var(--r-md);
+    font-weight: 600;
+    z-index: 10000;
+    transition: top var(--t-fast) var(--ease);
+}
+
+.skip-link:focus {
+    top: 16px;
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: var(--r-sm);
+}
+
+/* ==========================================================================
+   4. MAIN LAYOUT
+   ========================================================================== */
+.error-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-20) var(--space-6);
+    outline: none;
+}
+
+.error-content {
+    max-width: var(--max-width);
+    width: 100%;
+    text-align: center;
+}
+
+/* ==========================================================================
+   5. EYEBROW
+   ========================================================================== */
+.error-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    color: var(--dark-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: var(--space-8);
+}
+
+.error-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: inline-block;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%      { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* ==========================================================================
+   6. BIG 404
+   ========================================================================== */
+.error-code {
+    font-family: var(--font-serif);
+    font-size: var(--fs-mega);
+    font-weight: 600;
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+    color: var(--dark-text);
+    margin-bottom: var(--space-6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.05em;
+    user-select: none;
+}
+
+.err-digit {
+    color: var(--dark-text);
+}
+
+.err-digit-zero {
+    color: var(--accent);
+    display: inline-block;
+    animation: spin 8s linear infinite;
+    transform-origin: center;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   7. TITLE + LEDE
+   ========================================================================== */
+.error-title {
+    font-family: var(--font-serif);
+    font-size: var(--fs-2xl);
+    font-weight: 400;
+    color: var(--dark-text-soft);
+    margin-bottom: var(--space-6);
+    line-height: 1.4;
+}
+
+.error-title em {
+    font-style: italic;
+    color: var(--dark-text);
+}
+
+.error-lede {
+    font-size: var(--fs-md);
+    color: var(--dark-text-soft);
+    line-height: 1.7;
+    max-width: 52ch;
+    margin: 0 auto var(--space-10);
+}
+
+/* ==========================================================================
+   8. ACTIONS
+   ========================================================================== */
+.error-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    justify-content: center;
+    margin-bottom: var(--space-16);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: 9px 16px;
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    font-family: inherit;
+    border-radius: var(--r-md);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all var(--t-fast) var(--ease);
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.btn-lg {
+    padding: 12px 22px;
+    font-size: var(--fs-base);
+}
+
+.btn-primary {
+    background: var(--ink);
+    color: var(--dark-bg);
+    border-color: var(--ink);
+}
+
+.btn-primary:hover {
+    background: #fff;
+    border-color: #fff;
+    color: var(--dark-bg);
+}
+
+.btn-quiet {
+    background: transparent;
+    color: var(--dark-text-soft);
+    border-color: var(--dark-border-strong);
+}
+
+.btn-quiet:hover {
+    color: var(--dark-text);
+    border-color: var(--dark-text-soft);
+    background: var(--dark-border);
+}
+
+/* ==========================================================================
+   9. POPULAR PAGES
+   ========================================================================== */
+.error-links {
+    padding-top: var(--space-10);
+    border-top: 1px solid var(--dark-border);
+    margin-bottom: var(--space-12);
+}
+
+.error-links-title {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    color: var(--dark-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    margin-bottom: var(--space-6);
+}
+
+.error-links-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: var(--space-2);
+    max-width: 540px;
+    margin: 0 auto;
+}
+
+.error-links-list a {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--dark-border);
+    border-radius: var(--r-md);
+    font-size: var(--fs-sm);
+    color: var(--dark-text-soft);
+    transition: all var(--t-fast) var(--ease);
+    text-align: left;
+}
+
+.error-links-list a:hover {
+    color: var(--dark-text);
+    border-color: var(--dark-border-strong);
+    background: var(--dark-bg-soft);
+    transform: translateY(-1px);
+}
+
+.error-links-list a span {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    color: var(--dark-text-muted);
+    flex-shrink: 0;
+}
+
+/* ==========================================================================
+   10. NOTE
+   ========================================================================== */
+.error-note {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    color: var(--dark-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+}
+
+.error-note a {
+    color: var(--dark-text-soft);
+    border-bottom: 1px dotted var(--dark-text-muted);
+    padding-bottom: 1px;
+}
+
+.error-note a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+.err-mono {
+    font-family: var(--font-mono);
+}
+
+/* ==========================================================================
+   11. FOOTER
+   ========================================================================== */
+.error-footer {
+    padding: var(--space-8) var(--space-6);
+    text-align: center;
+    border-top: 1px solid var(--dark-border);
+    font-size: var(--fs-xs);
+    color: var(--dark-text-muted);
+}
+
+.error-footer p {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+/* ==========================================================================
+   12. RESPONSIVE — MOBILE (≤ 720px)
+   ========================================================================== */
+@media (max-width: 720px) {
+    .error-main {
+        padding: var(--space-16) var(--space-4);
+    }
+
+    .error-code {
+        font-size: clamp(4rem, 22vw, 7rem);
+        margin-bottom: var(--space-5);
+    }
+
+    .error-title {
+        font-size: var(--fs-xl);
+        margin-bottom: var(--space-5);
+    }
+
+    .error-lede {
+        font-size: var(--fs-base);
+        margin-bottom: var(--space-8);
+    }
+
+    .error-actions {
+        flex-direction: column;
+        align-items: stretch;
+        margin-bottom: var(--space-12);
+    }
+
+    .error-actions .btn {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .error-links {
+        padding-top: var(--space-8);
+        margin-bottom: var(--space-10);
+    }
+
+    .error-links-list {
+        grid-template-columns: 1fr;
+        gap: var(--space-2);
+    }
+
+    .error-note {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+}
+
+/* ==========================================================================
+   13. REDUCED MOTION
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .error-dot,
+    .err-digit-zero {
+        animation: none;
+    }
+
+    .err-digit-zero {
+        color: var(--accent);
+    }
+}
+
+/* ==========================================================================
+   14. PRINT
+   ========================================================================== */
+@media print {
+    .skip-link,
+    .error-actions,
+    .error-footer {
+        display: none !important;
+    }
+
+    body.page-404 {
+        background: #fff !important;
+        color: #000 !important;
+    }
+
+    .error-code,
+    .err-digit,
+    .err-digit-zero {
+        color: #000 !important;
+        animation: none !important;
+    }
+
+    .error-title em,
+    .error-lede,
+    .error-links-list a,
+    .error-note,
+    .error-note a {
+        color: #000 !important;
+    }
+
+    .error-links-list a {
+        border-color: #ccc !important;
+    }
+}
