@@ -1,0 +1,318 @@
+/* ============================================
+   Ravi Raj — Portfolio Styles
+   Simple, hand-written, mobile-first
+   ============================================ */
+
+/* ---------- Reset ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  background: #0a0f1c;
+  color: #e2e8f0;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  background: rgba(10, 15, 28, 0.95);
+  border-bottom: 1px solid #1e293b;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+
+.nav-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  font-size: 18px;
+  font-weight: 700;
+  color: #e2e8f0;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links a {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: #3b82f6;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 100px 24px 80px;
+}
+
+.hero-eyebrow {
+  font-size: 13px;
+  color: #3b82f6;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  color: #f1f5f9;
+}
+
+.accent {
+  color: #3b82f6;
+}
+
+.hero-sub {
+  font-size: 17px;
+  color: #94a3b8;
+  max-width: 600px;
+  margin-bottom: 32px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background: #3b82f6;
+  color: white;
+}
+
+.btn.primary:hover {
+  background: #2563eb;
+}
+
+.btn.secondary {
+  background: transparent;
+  color: #e2e8f0;
+  border: 1px solid #334155;
+}
+
+.btn.secondary:hover {
+  border-color: #3b82f6;
+  color: #3b82f6;
+}
+
+/* ---------- Sections ---------- */
+.section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+.section h2 {
+  font-size: 32px;
+  margin-bottom: 12px;
+  color: #f1f5f9;
+}
+
+.section-sub {
+  font-size: 15px;
+  color: #94a3b8;
+  margin-bottom: 40px;
+}
+
+/* ---------- Projects ---------- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  background: #111827;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.2s;
+}
+
+.project-card:hover {
+  border-color: #3b82f6;
+  transform: translateY(-3px);
+}
+
+.project-card h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: #f1f5f9;
+}
+
+.project-card p {
+  font-size: 14px;
+  color: #94a3b8;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.project-links {
+  display: flex;
+  gap: 16px;
+  font-size: 14px;
+}
+
+.project-links a {
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.project-links a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Skills ---------- */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.skill {
+  background: #111827;
+  border: 1px solid #1e293b;
+  padding: 10px 18px;
+  border-radius: 24px;
+  font-size: 14px;
+  color: #cbd5e1;
+}
+
+/* ---------- About ---------- */
+.about-text {
+  font-size: 15px;
+  color: #94a3b8;
+  margin-bottom: 16px;
+  max-width: 700px;
+}
+
+/* ---------- Contact ---------- */
+.contact-links {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.contact-links a {
+  background: #111827;
+  border: 1px solid #1e293b;
+  padding: 12px 20px;
+  border-radius: 8px;
+  color: #e2e8f0;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.contact-links a:hover {
+  border-color: #3b82f6;
+  color: #3b82f6;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  text-align: center;
+  padding: 40px 24px;
+  color: #64748b;
+  font-size: 13px;
+  border-top: 1px solid #1e293b;
+}
+
+/* ============================================
+   Mobile (max-width: 640px)
+   ============================================ */
+@media (max-width: 640px) {
+  .nav-inner {
+    padding: 14px 20px;
+  }
+
+  .nav-links {
+    gap: 16px;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+  }
+
+  .hero {
+    padding: 60px 20px 50px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero-sub {
+    font-size: 15px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn {
+    text-align: center;
+  }
+
+  .section {
+    padding: 60px 20px;
+  }
+
+  .section h2 {
+    font-size: 26px;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-links {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .contact-links a {
+    text-align: center;
+  }
+}
