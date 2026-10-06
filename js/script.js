@@ -1,6 +1,6 @@
 /* ==========================================================================
    RAVI RAJ — PORTFOLIO SCRIPT
-   Version: 6.0 (matches index.html v6 · 1st-year tone)
+   Version: 7.0 (matches index.html v7 · Resume on desktop + mobile)
    ========================================================================== */
 
 (function () {
@@ -191,7 +191,9 @@
     if (mobileClose) mobileClose.addEventListener('click', closeMenu);
     if (mobileOverlay) mobileOverlay.addEventListener('click', closeMenu);
 
-    $$('#mobileNav a').forEach(function (link) {
+    // Only close the menu for internal hash links.
+    // External links (e.g. Resume) navigate away — no need to close.
+    $$('#mobileNav a[href^="#"]').forEach(function (link) {
         link.addEventListener('click', function () {
             window.setTimeout(closeMenu, 60);
         });
