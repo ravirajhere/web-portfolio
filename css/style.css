@@ -2,7 +2,7 @@
    RAVI RAJ — PORTFOLIO STYLESHEET
    Design: Editorial Developer · Monochrome + Amber
    Author: Ravi Raj
-   Version: 6.0 (matches index.html v6 · 1st-year tone)
+   Version: 7.0 (matches index.html v7 · Resume on desktop + mobile)
    ========================================================================== */
 
 /* ==========================================================================
@@ -17,7 +17,7 @@
     --dark-border-strong: rgba(255, 255, 255, 0.14);
     --dark-text:          #ededed;
     --dark-text-soft:     #a3a3a3;
-    --dark-text-muted:    #8a8a8a;   /* improved contrast on dark bg */
+    --dark-text-muted:    #8a8a8a;
 
     /* --- ACCENT --- */
     --accent:             #b45309;
@@ -67,7 +67,7 @@
     --max-width:          1180px;
     --max-prose:          65ch;
     --header-h:           64px;
-    --topbar-h:           0px;   /* no top bar in current HTML */
+    --topbar-h:           0px;
 
     /* --- RADII --- */
     --r-sm:               2px;
@@ -310,6 +310,21 @@ code {
     flex-shrink: 0;
 }
 
+/* --- RESUME BUTTON (desktop: icon + text) --- */
+.btn-resume {
+    /* inherits .btn + .btn-quiet */
+}
+
+.btn-resume .resume-icon {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+}
+
+.btn-resume .resume-label {
+    /* visible by default on desktop */
+}
+
 /* --- MENU BUTTON (mobile) --- */
 .menu-btn {
     display: none;
@@ -326,6 +341,7 @@ code {
     text-transform: uppercase;
     cursor: pointer;
     transition: all var(--t-base) var(--ease);
+    flex-shrink: 0;
 }
 
 .menu-lines {
@@ -441,9 +457,10 @@ code {
     border-radius: var(--r-md);
     border: 1px solid var(--dark-border-strong);
     color: var(--dark-text-soft);
-    margin-bottom: var(--space-8);
+    margin-bottom: var(--space-6);
     cursor: pointer;
     transition: all var(--t-fast) var(--ease);
+    flex-shrink: 0;
 }
 
 .mobile-nav-close:hover {
@@ -451,6 +468,54 @@ code {
     border-color: var(--dark-text-soft);
 }
 
+/* --- RESUME CARD (mobile nav top) --- */
+.mobile-nav-resume {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    margin-bottom: var(--space-6);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    border-radius: var(--r-md);
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all var(--t-base) var(--ease);
+    flex-shrink: 0;
+}
+
+.mobile-nav-resume:hover {
+    background: var(--accent);
+    color: #fff;
+}
+
+.mobile-nav-resume svg {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+}
+
+.mobile-nav-resume span:first-of-type {
+    flex: 1;
+}
+
+.mobile-nav-resume-arrow {
+    font-size: var(--fs-base);
+    opacity: 0.7;
+    transition: transform var(--t-base) var(--ease);
+}
+
+.mobile-nav-resume:hover .mobile-nav-resume-arrow {
+    transform: translate(2px, -2px);
+    opacity: 1;
+}
+
+/* --- MOBILE NAV LINKS --- */
 .mobile-nav ul {
     display: flex;
     flex-direction: column;
@@ -482,6 +547,7 @@ code {
     padding-left: var(--space-3);
 }
 
+/* --- MOBILE NAV FOOT --- */
 .mobile-nav-foot {
     margin-top: auto;
     padding-top: var(--space-8);
@@ -585,7 +651,7 @@ code {
 
 .hero-meta {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);   /* 2×2 — 4 items */
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--space-6) var(--space-8);
     padding-top: var(--space-8);
     border-top: 1px solid var(--dark-border);
@@ -811,7 +877,7 @@ code {
 
 .work-detail > div {
     display: grid;
-    grid-template-columns: 140px 1fr;   /* wider for "THE CHALLENGE" */
+    grid-template-columns: 140px 1fr;
     gap: var(--space-5);
     align-items: baseline;
 }
@@ -889,7 +955,7 @@ code {
 
 .skills-row {
     display: grid;
-    grid-template-columns: 1.4fr 0.9fr 2fr;   /* 3 columns — matches HTML */
+    grid-template-columns: 1.4fr 0.9fr 2fr;
     gap: var(--space-4);
     padding: var(--space-4) var(--space-5);
     align-items: center;
@@ -1169,7 +1235,7 @@ code {
     max-width: var(--max-width);
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;   /* 3 columns — matches HTML */
+    grid-template-columns: 2fr 1fr 1fr;
     gap: var(--space-12);
     padding-bottom: var(--space-12);
     border-bottom: 1px solid var(--dark-border);
@@ -1315,17 +1381,42 @@ code {
 
     .header-inner {
         padding: 0 var(--space-4);
-        gap: var(--space-4);
+        gap: var(--space-3);
     }
 
-    .primary-nav,
-    .header-actions {
+    /* Hide primary nav only — keep header-actions for Resume icon */
+    .primary-nav {
         display: none;
     }
 
+    /* Hide "Get in touch" button, hide Resume text label */
+    .header-actions .btn-primary {
+        display: none;
+    }
+
+    .header-actions .btn-resume .resume-label {
+        display: none;
+    }
+
+    /* Make Resume icon-only — square, compact */
+    .header-actions .btn-resume {
+        padding: 0;
+        width: 40px;
+        height: 40px;
+        justify-content: center;
+        border-radius: var(--r-md);
+    }
+
+    .header-actions {
+        display: flex;
+        gap: var(--space-2);
+        margin-left: auto;
+    }
+
+    /* Menu button sits to the right of Resume icon */
     .menu-btn {
         display: inline-flex;
-        margin-left: auto;
+        margin-left: 0;
     }
 
     .menu-label {
@@ -1336,6 +1427,7 @@ code {
         background: rgba(10, 10, 10, 0.98);
     }
 
+    /* --- HERO --- */
     .hero {
         padding: var(--space-16) var(--space-4) var(--space-10);
     }
@@ -1363,6 +1455,7 @@ code {
         gap: var(--space-5);
     }
 
+    /* --- SECTIONS --- */
     .section {
         padding: var(--space-16) var(--space-4);
     }
@@ -1465,6 +1558,17 @@ code {
 
     .contact-email {
         font-size: 1.1rem;
+    }
+
+    /* Slightly smaller Resume icon on tiny screens */
+    .header-actions .btn-resume {
+        width: 36px;
+        height: 36px;
+    }
+
+    .header-actions .btn-resume .resume-icon {
+        width: 15px;
+        height: 15px;
     }
 }
 
