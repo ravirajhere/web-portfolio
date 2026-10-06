@@ -1,6 +1,6 @@
 /* ==========================================================================
    RAVI RAJ — PORTFOLIO SCRIPT
-   Version: 5.0 (1st-year portfolio · Recruiter-focused)
+   Version: 6.0 (matches index.html v6 · 1st-year tone)
    ========================================================================== */
 
 (function () {
@@ -9,10 +9,14 @@
     /* ======================================================================
        1. HELPERS
        ====================================================================== */
-    const $  = (sel, ctx) => (ctx || document).querySelector(sel);
-    const $$ = (sel, ctx) => Array.prototype.slice.call(
-        (ctx || document).querySelectorAll(sel)
-    );
+    const $  = function (sel, ctx) {
+        return (ctx || document).querySelector(sel);
+    };
+    const $$ = function (sel, ctx) {
+        return Array.prototype.slice.call(
+            (ctx || document).querySelectorAll(sel)
+        );
+    };
 
     const prefersReduced = (function () {
         try {
@@ -32,13 +36,8 @@
         '[tabindex]:not([tabindex="-1"])'
     ].join(',');
 
-    function sessionGet(key) {
-        try { return sessionStorage.getItem(key); }
-        catch (e) { return null; }
-    }
-    function sessionSet(key, value) {
-        try { sessionStorage.setItem(key, value); return true; }
-        catch (e) { return false; }
+    function getScrollY() {
+        return window.scrollY || window.pageYOffset || 0;
     }
 
     /* ======================================================================
@@ -49,7 +48,6 @@
     const mobileOverlay = $('#mobileOverlay');
     const mobileClose   = $('#mobileNavClose');
 
-    const header        = $('#siteHeader');
     const yearEl        = $('#year');
     const copyBtn       = $('#copyEmail');
     const emailTxt      = $('#emailText');
@@ -70,12 +68,19 @@
        ====================================================================== */
     let activeTrap = null;
 
+    function getFocusables(container) {
+        return $$(FOCUSABLE, container).filter(function (el) {
+            if (el === document.activeElement) return true;
+            if (el.hasAttribute('disabled')) return false;
+            const rect = el.getBoundingClientRect();
+            return rect.width > 0 && rect.height > 0;
+        });
+    }
+
     function handleTrapKey(e) {
         if (e.key !== 'Tab' || !activeTrap) return;
 
-        const focusables = $$(FOCUSABLE, activeTrap).filter(function (el) {
-            return el.offsetParent !== null || el === document.activeElement;
-        });
+        const focusables = getFocusables(activeTrap);
         if (!focusables.length) return;
 
         const first = focusables[0];
@@ -117,6 +122,15 @@
        5. MOBILE MENU
        ====================================================================== */
     let lastFocusedMenu = null;
+    const MENU_TRANSITION_MS = 500;
+
+    function focusFirstInMenu() {
+        if (!mobileNav) return;
+        const firstLink = $('a', mobileNav);
+        if (firstLink && typeof firstLink.focus === 'function') {
+            try { firstLink.focus(); } catch (e) {}
+        }
+    }
 
     function openMenu() {
         if (!mobileNav || !mobileOverlay) return;
@@ -131,15 +145,11 @@
 
         document.body.style.overflow = 'hidden';
         if (menuBtn) menuBtn.setAttribute('aria-expanded', 'true');
-        mobileNav.setAttribute('aria-hidden', 'false');
-        mobileOverlay.setAttribute('aria-hidden', 'false');
 
-        setTimeout(function () {
-            const firstLink = $('a', mobileNav);
-            if (firstLink && typeof firstLink.focus === 'function') {
-                try { firstLink.focus(); } catch (e) {}
-            }
-        }, 100);
+        // Two RAFs ensure the transition has started before focusing
+        requestAnimationFrame(function () {
+            requestAnimationFrame(focusFirstInMenu);
+        });
 
         trapFocus(mobileNav);
     }
@@ -150,15 +160,15 @@
         mobileNav.dataset.open = 'false';
         mobileOverlay.dataset.open = 'false';
         if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
-        mobileNav.setAttribute('aria-hidden', 'true');
-        mobileOverlay.setAttribute('aria-hidden', 'true');
 
         document.body.style.overflow = '';
 
-        setTimeout(function () {
-            mobileNav.hidden = true;
-            mobileOverlay.hidden = true;
-        }, 500);
+        window.setTimeout(function () {
+            if (mobileNav.dataset.open !== 'true') {
+                mobileNav.hidden = true;
+                mobileOverlay.hidden = true;
+            }
+        }, MENU_TRANSITION_MS);
 
         releaseFocus();
 
@@ -183,7 +193,7 @@
 
     $$('#mobileNav a').forEach(function (link) {
         link.addEventListener('click', function () {
-            setTimeout(closeMenu, 60);
+            window.setTimeout(closeMenu, 60);
         });
     });
 
@@ -200,52 +210,56 @@
 
             e.preventDefault();
 
-            const top = target.getBoundingClientRect().top + window.scrollY - 100;
-            window.scrollTo({
-                top: top,
-                behavior: prefersReduced ? 'auto' : 'smooth'
+            target.scrollIntoView({
+                behavior: prefersReduced ? 'auto' : 'smooth',
+                block: 'start'
             });
 
-            try { history.pushState(null, '', href); } catch (err) {}
+            try { history.replaceState(null, '', href); } catch (err) {}
         });
     });
 
     /* ======================================================================
        7. COPY EMAIL
        ====================================================================== */
+    const ORIGINAL_EMAIL = emailTxt ? emailTxt.textContent.trim() : '';
+    let copyTimer = null;
+
     function showCopyState(label) {
         if (!copyBtn || !emailTxt) return;
-        const prev = emailTxt.textContent;
+        if (copyTimer) clearTimeout(copyTimer);
         emailTxt.textContent = label;
-        setTimeout(function () {
-            emailTxt.textContent = prev;
+        copyTimer = setTimeout(function () {
+            emailTxt.textContent = ORIGINAL_EMAIL;
         }, 1600);
     }
 
-    function copyEmail() {
-        if (!emailTxt) return;
-        const text = emailTxt.textContent.trim();
+    function fallbackCopy(text) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'absolute';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(ta);
+    }
 
-        try {
-            if (navigator.clipboard && window.isSecureContext) {
-                navigator.clipboard.writeText(text).then(
-                    function () { showCopyState('Copied ✓'); },
-                    function () { showCopyState('Copy failed'); }
-                );
-            } else {
-                const ta = document.createElement('textarea');
-                ta.value = text;
-                ta.setAttribute('readonly', '');
-                ta.style.position = 'absolute';
-                ta.style.left = '-9999px';
-                document.body.appendChild(ta);
-                ta.select();
-                document.execCommand('copy');
-                document.body.removeChild(ta);
-                showCopyState('Copied ✓');
-            }
-        } catch (err) {
-            showCopyState('Copy failed');
+    function copyEmail() {
+        if (!ORIGINAL_EMAIL) return;
+
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(ORIGINAL_EMAIL).then(
+                function () { showCopyState('Copied ✓'); },
+                function () {
+                    fallbackCopy(ORIGINAL_EMAIL);
+                    showCopyState('Copied ✓');
+                }
+            );
+        } else {
+            fallbackCopy(ORIGINAL_EMAIL);
+            showCopyState('Copied ✓');
         }
     }
 
@@ -257,17 +271,22 @@
     function updateActiveNav() {
         if (!sections.length || !navLinks.length) return;
 
-        const scrollY = window.scrollY + 140;
+        const y = getScrollY() + 140;
         let currentId = '';
 
         for (let i = 0; i < sections.length; i++) {
             const s = sections[i];
             const top = s.offsetTop;
             const bottom = top + s.offsetHeight;
-            if (scrollY >= top && scrollY < bottom) {
+            if (y >= top && y < bottom) {
                 currentId = s.id;
                 break;
             }
+        }
+
+        // Fallback: keep "About" highlighted when at top
+        if (!currentId && sections.length) {
+            currentId = sections[0].id;
         }
 
         navLinks.forEach(function (link) {
@@ -283,194 +302,163 @@
         });
     }
 
-    let navRaf = null;
-    window.addEventListener('scroll', function () {
-        if (navRaf) return;
-        navRaf = requestAnimationFrame(function () {
-            updateActiveNav();
-            navRaf = null;
-        });
-    }, { passive: true });
-
-    window.addEventListener('load', updateActiveNav);
-    updateActiveNav();
-
     /* ======================================================================
        9. SCROLL CUE FADE
        ====================================================================== */
-    if (scrollCue) {
-        let cueRaf = null;
+    let scrollCueOpacity = 1;
 
-        const fadeCue = function () {
-            const opacity = Math.max(0, 1 - window.scrollY / 300);
-            scrollCue.style.opacity = String(opacity);
-            scrollCue.style.pointerEvents = opacity < 0.1 ? 'none' : 'auto';
-        };
-
-        window.addEventListener('scroll', function () {
-            if (cueRaf) return;
-            cueRaf = requestAnimationFrame(function () {
-                fadeCue();
-                cueRaf = null;
-            });
-        }, { passive: true });
-
-        fadeCue();
+    function fadeCue() {
+        if (!scrollCue) return;
+        const opacity = Math.max(0, 1 - getScrollY() / 300);
+        if (opacity === scrollCueOpacity) return;
+        scrollCueOpacity = opacity;
+        scrollCue.style.opacity = String(opacity);
+        scrollCue.style.pointerEvents = opacity < 0.1 ? 'none' : 'auto';
     }
 
     /* ======================================================================
-       10. EXTERNAL LINKS SECURITY
+       10. SINGLE SCROLL HANDLER (RAF throttled)
        ====================================================================== */
-    $$('a[target="_blank"]').forEach(function (link) {
-        const rel = link.getAttribute('rel') || '';
-        if (rel.indexOf('noopener') === -1) {
-            link.setAttribute('rel', (rel + ' noopener noreferrer').trim());
-        }
-    });
+    let rafId = null;
+
+    function onScroll() {
+        if (rafId) return;
+        rafId = requestAnimationFrame(function () {
+            updateActiveNav();
+            fadeCue();
+            rafId = null;
+        });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('load', updateActiveNav);
+    window.addEventListener('resize', onScroll, { passive: true });
+
+    updateActiveNav();
+    fadeCue();
 
     /* ======================================================================
-       11. CONSOLE GREETING
+       11. CONTACT FORM
        ====================================================================== */
-    const hasGreeted = sessionGet('rr-greeted');
-    if (!hasGreeted) {
-        const accent = 'color:#b45309;font-weight:600;';
-        const soft   = 'color:#737373;';
+    (function initContactForm() {
+        const form = $('#contactForm');
+        const status = $('#formStatus');
+        const submitBtn = $('#submitBtn');
 
-        console.log('%cRavi Raj — Portfolio', 'font-size:14px;font-weight:700;' + accent);
-        console.log('%cHi, fellow developer. Thanks for opening the console.', 'font-size:12px;' + soft);
-        console.log('%cCode: https://github.com/ravirajhere', 'font-size:12px;' + soft);
+        if (!form || !status || !submitBtn) return;
 
-        sessionSet('rr-greeted', '1');
-    }
+        const MIN_NAME = 2;
+        const MIN_MSG = 10;
+        const STATUS_DISMISS_MS = 5000;
+        const LOADING_TIMEOUT_MS = 15000;
 
-    /* ======================================================================
-       12. LIVE GITHUB STATS
-       ====================================================================== */
-    (function initLiveStats() {
-        const lastCommitEl = $('#tbCommits');
+        let statusTimer = null;
 
-        if (!lastCommitEl) return;
+        function showStatus(message, type) {
+            if (statusTimer) clearTimeout(statusTimer);
+            status.textContent = message;
+            status.className = 'status is-visible is-' + type;
 
-        fetch('/api/stats')
-            .then(function (res) {
-                if (!res.ok) throw new Error('HTTP ' + res.status);
-                return res.json();
-            })
-            .then(function (data) {
-                if (!data || !data.lastCommit) return;
-
-                const days = data.lastCommit.daysAgo;
-                const textEl = lastCommitEl.querySelector('.tb-commits-text') || lastCommitEl;
-
-                if (days === 0) {
-                    textEl.textContent = 'Committed today';
-                } else if (days === 1) {
-                    textEl.textContent = 'Last commit: yesterday';
-                } else if (days !== null && days >= 0) {
-                    textEl.textContent = 'Last commit: ' + days + 'd ago';
-                }
-            })
-            .catch(function (err) {
-                console.warn('[stats] Failed to load:', err.message);
-            });
-    })();
-
-})();
-/* ======================================================================
-   13. CONTACT FORM (inline on index.html)
-   ====================================================================== */
-(function initContactForm() {
-    const form = $('#contactForm');
-    const status = $('#formStatus');
-    const submitBtn = $('#submitBtn');
-
-    if (!form || !status || !submitBtn) return;
-
-    const MIN_NAME = 2;
-    const MIN_MSG = 10;
-    let statusTimer = null;
-
-    function showStatus(message, type) {
-        if (statusTimer) clearTimeout(statusTimer);
-        status.textContent = message;
-        status.className = 'status is-visible is-' + type;
-        if (type !== 'loading') {
-            statusTimer = setTimeout(function () {
-                status.className = 'status';
-            }, 5000);
-        }
-    }
-
-    function validateForm(name, email, message) {
-        if (!name || name.length < MIN_NAME) return 'Please enter your name (at least 2 characters).';
-        if (name.length > 60) return 'Name is too long.';
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-        if (!email || !emailRegex.test(email)) return 'Please enter a valid email address.';
-        if (!message || message.length < MIN_MSG) return 'Message must be at least 10 characters.';
-        if (message.length > 2000) return 'Message is too long.';
-        return null;
-    }
-
-    function resetBtn() {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML =
-            '<span>Send Message</span>' +
-            '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">' +
-            '<path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>' +
-            '</svg>';
-    }
-
-    form.addEventListener('submit', async function (e) {
-        e.preventDefault();
-
-        const honeypot = $('#hp_website');
-        if (honeypot && honeypot.value.trim() !== '') {
-            return;
+            if (type === 'loading') {
+                statusTimer = setTimeout(function () {
+                    status.className = 'status';
+                    resetBtn();
+                }, LOADING_TIMEOUT_MS);
+            } else {
+                statusTimer = setTimeout(function () {
+                    status.className = 'status';
+                }, STATUS_DISMISS_MS);
+            }
         }
 
-        const name = $('#user_name').value.trim();
-        const email = $('#user_email').value.trim();
-        const message = $('#user_message').value.trim();
+        function validateForm(name, email, message) {
+            if (!name || name.length < MIN_NAME) {
+                return 'Please enter your name (at least 2 characters).';
+            }
+            if (name.length > 60) return 'Name is too long.';
 
-        const error = validateForm(name, email, message);
-        if (error) {
-            showStatus(error, 'error');
-            return;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+            if (!email || !emailRegex.test(email)) {
+                return 'Please enter a valid email address.';
+            }
+
+            if (!message || message.length < MIN_MSG) {
+                return 'Message must be at least 10 characters.';
+            }
+            if (message.length > 2000) return 'Message is too long.';
+
+            return null;
         }
 
-        showStatus('Sending your message…', 'loading');
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '<span>Sending…</span>';
+        function resetBtn() {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML =
+                '<span>Send Message</span>' +
+                '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">' +
+                '<path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>' +
+                '</svg>';
+        }
 
-        try {
-            const res = await fetch('/api/contact', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    name: name,
-                    email: email,
-                    message: message,
-                    website: '',
-                    context: 'portfolio'
-                })
-            });
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
 
-            const data = await res.json().catch(function () { return {}; });
-
-            if (!res.ok) {
-                showStatus(data.error || 'Failed to send. Try again.', 'error');
-                resetBtn();
+            const honeypot = $('#hp_website');
+            if (honeypot && honeypot.value.trim() !== '') {
                 return;
             }
 
-            showStatus("Message sent. I'll reply soon.", 'success');
-            form.reset();
-            resetBtn();
-        } catch (err) {
-            console.error(err);
-            showStatus('Network error. Try again.', 'error');
-            resetBtn();
-        }
-    });
-})();
+            const nameEl = $('#user_name');
+            const emailEl = $('#user_email');
+            const msgEl = $('#user_message');
 
+            const name = nameEl ? nameEl.value.trim() : '';
+            const email = emailEl ? emailEl.value.trim() : '';
+            const message = msgEl ? msgEl.value.trim() : '';
+
+            const error = validateForm(name, email, message);
+            if (error) {
+                showStatus(error, 'error');
+                return;
+            }
+
+            showStatus('Sending your message…', 'loading');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span>Sending…</span>';
+
+            try {
+                const res = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: name,
+                        email: email,
+                        message: message,
+                        website: '',
+                        context: 'portfolio'
+                    })
+                });
+
+                const data = await res.json().catch(function () { return {}; });
+
+                if (!res.ok) {
+                    showStatus(data.error || 'Failed to send. Try again.', 'error');
+                    resetBtn();
+                    return;
+                }
+
+                showStatus("Message sent. I'll reply soon.", 'success');
+                form.reset();
+                resetBtn();
+
+                if (nameEl && typeof nameEl.focus === 'function') {
+                    try { nameEl.focus(); } catch (err) {}
+                }
+            } catch (err) {
+                console.error(err);
+                showStatus('Network error. Try again.', 'error');
+                resetBtn();
+            }
+        });
+    })();
+
+})();
