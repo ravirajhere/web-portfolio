@@ -2,14 +2,14 @@
    RAVI RAJ — PORTFOLIO STYLESHEET
    Design: Editorial Developer · Monochrome + Amber
    Author: Ravi Raj
-   Version: 5.0 (1st-year portfolio · inline contact form)
+   Version: 6.0 (matches index.html v6 · 1st-year tone)
    ========================================================================== */
 
 /* ==========================================================================
    1. DESIGN TOKENS
    ========================================================================== */
 :root {
-    /* --- COLOR: DARK WORLD (Developer) --- */
+    /* --- COLOR: DARK WORLD --- */
     --dark-bg:            #0a0a0a;
     --dark-bg-soft:       #111111;
     --dark-bg-elev:       #171717;
@@ -17,17 +17,7 @@
     --dark-border-strong: rgba(255, 255, 255, 0.14);
     --dark-text:          #ededed;
     --dark-text-soft:     #a3a3a3;
-    --dark-text-muted:    #737373;
-
-    /* --- COLOR: LIGHT WORLD --- */
-    --light-bg:           #faf8f4;
-    --light-bg-soft:      #f3efe7;
-    --light-bg-elev:      #ffffff;
-    --light-border:       rgba(20, 15, 10, 0.10);
-    --light-border-strong:rgba(20, 15, 10, 0.18);
-    --light-text:         #1a1614;
-    --light-text-soft:    #4a423c;
-    --light-text-muted:   #7a7068;
+    --dark-text-muted:    #8a8a8a;   /* improved contrast on dark bg */
 
     /* --- ACCENT --- */
     --accent:             #b45309;
@@ -72,13 +62,12 @@
     --space-16:           4rem;
     --space-20:           5rem;
     --space-24:           6rem;
-    --space-32:           8rem;
 
     /* --- LAYOUT --- */
     --max-width:          1180px;
     --max-prose:          65ch;
     --header-h:           64px;
-    --topbar-h:           36px;
+    --topbar-h:           0px;   /* no top bar in current HTML */
 
     /* --- RADII --- */
     --r-sm:               2px;
@@ -92,10 +81,6 @@
     --t-fast:             150ms;
     --t-base:             250ms;
     --t-slow:             500ms;
-
-    /* --- SHADOWS --- */
-    --shadow-dark:        0 1px 2px rgba(0, 0, 0, 0.3);
-    --shadow-light:       0 1px 2px rgba(20, 15, 10, 0.04);
 }
 
 /* ==========================================================================
@@ -168,19 +153,9 @@ code {
     border-radius: var(--r-sm);
 }
 
-kbd {
-    background: var(--dark-border);
-    border: 1px solid var(--dark-border-strong);
-    padding: 0.1em 0.45em;
-    border-radius: var(--r-sm);
-    font-size: 0.75rem;
-    font-weight: 500;
-    color: var(--dark-text-soft);
-}
-
 ::selection {
     background: var(--accent);
-    color: #fff;
+    color: var(--ink);
 }
 
 /* ==========================================================================
@@ -203,18 +178,6 @@ kbd {
     top: 16px;
 }
 
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
-
 :focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 3px;
@@ -222,89 +185,7 @@ kbd {
 }
 
 /* ==========================================================================
-   4. TOP BAR
-   ========================================================================== */
-.top-bar {
-    height: var(--topbar-h);
-    background: var(--dark-bg-soft);
-    border-bottom: 1px solid var(--dark-border);
-    font-size: var(--fs-xs);
-    color: var(--dark-text-soft);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 999;
-}
-
-.top-bar-inner {
-    max-width: var(--max-width);
-    height: 100%;
-    margin: 0 auto;
-    padding: 0 var(--space-6);
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-}
-
-.tb-live {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    color: var(--dark-text);
-    font-weight: 500;
-}
-
-.dot {
-    width: 6px;
-    height: 6px;
-    background: var(--live);
-    border-radius: 50%;
-    display: inline-block;
-    animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50%      { opacity: 0.4; transform: scale(0.85); }
-}
-
-.tb-sep {
-    color: var(--dark-text-muted);
-}
-
-.tb-spacer {
-    flex: 1;
-}
-
-/* Commits indicator */
-.tb-commits {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    color: var(--dark-text-soft);
-    font-family: var(--font-mono);
-    font-size: var(--fs-xs);
-}
-
-.tb-commits-dot {
-    width: 5px;
-    height: 5px;
-    background: var(--live);
-    border-radius: 50%;
-    display: inline-block;
-}
-
-.tb-commits-text {
-    color: inherit;
-}
-
-.hide-m {
-    display: inline;
-}
-
-/* ==========================================================================
-   5. HEADER
+   4. HEADER
    ========================================================================== */
 .site-header {
     position: fixed;
@@ -346,31 +227,13 @@ kbd {
     flex-shrink: 0;
 }
 
-.brand-mark {
-    position: relative;
+.brand-mark-img {
     width: 36px;
     height: 36px;
-    display: grid;
-    place-items: center;
-    background: var(--dark-bg-elev);
-    border: 1px solid var(--dark-border-strong);
     border-radius: var(--r-md);
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 500;
-    color: var(--dark-text);
-    letter-spacing: 0.02em;
-    transition: all var(--t-base) var(--ease);
-}
-
-.bm-dot {
-    position: absolute;
-    top: 4px;
-    right: 4px;
-    width: 5px;
-    height: 5px;
-    background: var(--live);
-    border-radius: 50%;
+    border: 1px solid var(--dark-border-strong);
+    flex-shrink: 0;
+    object-fit: cover;
 }
 
 .brand-text {
@@ -383,7 +246,6 @@ kbd {
     font-size: var(--fs-sm);
     font-weight: 600;
     color: var(--dark-text);
-    transition: color var(--t-base) var(--ease);
 }
 
 .brand-text em {
@@ -391,7 +253,6 @@ kbd {
     font-size: var(--fs-xs);
     color: var(--dark-text-muted);
     letter-spacing: 0.02em;
-    transition: color var(--t-base) var(--ease);
 }
 
 /* --- PRIMARY NAV --- */
@@ -486,7 +347,7 @@ kbd {
 }
 
 /* ==========================================================================
-   6. BUTTONS
+   5. BUTTONS
    ========================================================================== */
 .btn {
     display: inline-flex;
@@ -533,20 +394,8 @@ kbd {
     background: var(--dark-border);
 }
 
-.btn-dark {
-    background: var(--light-text);
-    color: var(--light-bg);
-    border-color: var(--light-text);
-}
-
-.btn-dark:hover {
-    background: #000;
-    border-color: #000;
-    color: var(--light-bg);
-}
-
 /* ==========================================================================
-   7. MOBILE NAV
+   6. MOBILE NAV
    ========================================================================== */
 .mobile-overlay {
     position: fixed;
@@ -644,8 +493,18 @@ kbd {
     gap: var(--space-2);
 }
 
+.mobile-nav-foot a {
+    color: var(--dark-text-soft);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.mobile-nav-foot a:hover {
+    color: var(--accent);
+}
+
 /* ==========================================================================
-   8. MAIN CONTAINER
+   7. MAIN CONTAINER
    ========================================================================== */
 #main {
     padding-top: calc(var(--topbar-h) + var(--header-h));
@@ -653,7 +512,7 @@ kbd {
 }
 
 /* ==========================================================================
-   9. HERO
+   8. HERO
    ========================================================================== */
 .hero {
     max-width: var(--max-width);
@@ -690,6 +549,7 @@ kbd {
     height: 5px;
     background: var(--accent);
     border-radius: 50%;
+    flex-shrink: 0;
 }
 
 .hero-title {
@@ -716,17 +576,6 @@ kbd {
     margin-bottom: var(--space-10);
 }
 
-.hero-lede strong {
-    color: var(--dark-text);
-    font-weight: 600;
-}
-
-.hero-lede em {
-    font-family: var(--font-serif);
-    font-style: italic;
-    color: var(--dark-text);
-}
-
 .hero-actions {
     display: flex;
     flex-wrap: wrap;
@@ -736,8 +585,8 @@ kbd {
 
 .hero-meta {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-6);
+    grid-template-columns: repeat(2, 1fr);   /* 2×2 — 4 items */
+    gap: var(--space-6) var(--space-8);
     padding-top: var(--space-8);
     border-top: 1px solid var(--dark-border);
 }
@@ -760,6 +609,39 @@ kbd {
     color: var(--dark-text);
     font-weight: 500;
     line-height: 1.4;
+}
+
+/* GitHub activity link inside hero-meta */
+.tb-commits {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--dark-text);
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    text-decoration: none;
+    transition: color var(--t-fast) var(--ease);
+}
+
+.tb-commits:hover {
+    color: var(--accent);
+}
+
+.tb-commits-dot {
+    width: 5px;
+    height: 5px;
+    background: var(--live);
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.tb-commits:hover .tb-commits-dot {
+    background: var(--accent);
+}
+
+.tb-commits-text {
+    color: inherit;
 }
 
 /* --- HERO SIDE --- */
@@ -795,14 +677,6 @@ kbd {
     min-width: 0;
 }
 
-.photo-note {
-    font-family: var(--font-serif);
-    font-style: italic;
-    font-size: var(--fs-sm);
-    color: var(--dark-text-soft);
-    line-height: 1.45;
-}
-
 .photo-credit {
     font-family: var(--font-mono);
     font-size: var(--fs-xs);
@@ -815,7 +689,7 @@ kbd {
     flex-direction: column;
     align-items: center;
     gap: var(--space-3);
-    margin-top: var(--space-16);
+    margin-top: var(--space-8);
     font-family: var(--font-mono);
     font-size: var(--fs-xs);
     color: var(--dark-text-muted);
@@ -831,7 +705,7 @@ kbd {
 }
 
 /* ==========================================================================
-   10. SECTIONS
+   9. SECTIONS
    ========================================================================== */
 .section {
     max-width: var(--max-width);
@@ -852,7 +726,7 @@ kbd {
     font-size: var(--fs-xs);
     color: var(--dark-text-muted);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
     margin-bottom: var(--space-4);
 }
 
@@ -862,7 +736,7 @@ kbd {
     font-weight: 600;
     line-height: 1.15;
     letter-spacing: -0.02em;
-    color: inherit;
+    color: var(--dark-text);
 }
 
 .section-head h2 em {
@@ -879,7 +753,7 @@ kbd {
 }
 
 /* ==========================================================================
-   11. WORK
+   10. WORK
    ========================================================================== */
 .work-list {
     display: flex;
@@ -894,15 +768,10 @@ kbd {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
     gap: var(--space-12);
     align-items: start;
-    transition: background var(--t-base) var(--ease);
 }
 
 .work-item:last-child {
     border-bottom: 1px solid var(--dark-border);
-}
-
-.work-item:hover {
-    background: var(--dark-bg-soft);
 }
 
 .work-head h3 {
@@ -912,6 +781,10 @@ kbd {
     color: var(--dark-text);
     line-height: 1.2;
     margin-bottom: var(--space-2);
+}
+
+.work-head h3 code {
+    font-size: 0.8em;
 }
 
 .work-year {
@@ -938,7 +811,7 @@ kbd {
 
 .work-detail > div {
     display: grid;
-    grid-template-columns: 100px 1fr;
+    grid-template-columns: 140px 1fr;   /* wider for "THE CHALLENGE" */
     gap: var(--space-5);
     align-items: baseline;
 }
@@ -986,6 +859,15 @@ kbd {
     gap: var(--space-3);
 }
 
+.work-foot-secondary {
+    color: var(--dark-text-muted) !important;
+    font-weight: 500 !important;
+}
+
+.work-foot-secondary:hover {
+    color: var(--accent) !important;
+}
+
 .work-tech {
     font-family: var(--font-mono);
     font-size: var(--fs-xs);
@@ -995,7 +877,7 @@ kbd {
 }
 
 /* ==========================================================================
-   12. SKILLS TABLE
+   11. SKILLS TABLE
    ========================================================================== */
 .skills-table {
     display: flex;
@@ -1007,7 +889,7 @@ kbd {
 
 .skills-row {
     display: grid;
-    grid-template-columns: 1.4fr 0.9fr 0.6fr 2fr;
+    grid-template-columns: 1.4fr 0.9fr 2fr;   /* 3 columns — matches HTML */
     gap: var(--space-4);
     padding: var(--space-4) var(--space-5);
     align-items: center;
@@ -1063,17 +945,8 @@ kbd {
 }
 
 /* ==========================================================================
-   13. CONTACT
+   12. CONTACT
    ========================================================================== */
-.contact-lede {
-    font-family: var(--font-serif);
-    font-size: var(--fs-xl);
-    line-height: 1.55;
-    color: var(--dark-text-soft);
-    max-width: var(--max-prose);
-    margin-bottom: var(--space-12);
-}
-
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
@@ -1103,7 +976,7 @@ kbd {
     border-bottom: 2px solid transparent;
     cursor: pointer;
     transition: all var(--t-base) var(--ease);
-    word-break: break-all;
+    word-break: break-word;
     text-align: left;
 }
 
@@ -1282,7 +1155,7 @@ kbd {
 }
 
 /* ==========================================================================
-   14. FOOTER
+   13. FOOTER
    ========================================================================== */
 .site-footer {
     background: var(--dark-bg);
@@ -1296,7 +1169,7 @@ kbd {
     max-width: var(--max-width);
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr;   /* 3 columns — matches HTML */
     gap: var(--space-12);
     padding-bottom: var(--space-12);
     border-bottom: 1px solid var(--dark-border);
@@ -1313,11 +1186,21 @@ kbd {
 }
 
 .footer-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
     font-family: var(--font-serif);
     font-size: var(--fs-2xl);
     font-weight: 600;
     color: var(--dark-text);
     letter-spacing: -0.01em;
+}
+
+.footer-brand-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: var(--r-sm);
+    object-fit: cover;
 }
 
 .footer-tag {
@@ -1351,11 +1234,6 @@ kbd {
     color: var(--dark-text);
 }
 
-.footer-col ul li {
-    font-size: var(--fs-sm);
-    color: var(--dark-text-muted);
-}
-
 .footer-bottom {
     max-width: var(--max-width);
     margin: var(--space-8) auto 0;
@@ -1376,8 +1254,21 @@ kbd {
     gap: var(--space-2);
 }
 
+.footer-kbd {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.footer-mini-icon {
+    width: 16px;
+    height: 16px;
+    border-radius: 2px;
+    object-fit: cover;
+}
+
 /* ==========================================================================
-   15. RESPONSIVE — TABLET (≤ 960px)
+   14. RESPONSIVE — TABLET (≤ 960px)
    ========================================================================== */
 @media (max-width: 960px) {
     .hero-grid {
@@ -1414,21 +1305,12 @@ kbd {
 }
 
 /* ==========================================================================
-   16. RESPONSIVE — MOBILE (≤ 720px)
+   15. RESPONSIVE — MOBILE (≤ 720px)
    ========================================================================== */
 @media (max-width: 720px) {
     :root {
         --header-h: 56px;
         --space-24: 4rem;
-        --space-32: 5rem;
-    }
-
-    .hide-m {
-        display: none;
-    }
-
-    .top-bar-inner {
-        padding: 0 var(--space-4);
     }
 
     .header-inner {
@@ -1483,7 +1365,6 @@ kbd {
 
     .section {
         padding: var(--space-16) var(--space-4);
-        contain: layout style;
     }
 
     .section-head {
@@ -1500,9 +1381,9 @@ kbd {
     }
 
     .skills-row {
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-2) var(--space-4);
-        padding: var(--space-4);
+        grid-template-columns: 1fr;
+        gap: var(--space-3);
+        padding: var(--space-5) var(--space-4);
     }
 
     .skills-row > span::before {
@@ -1516,12 +1397,14 @@ kbd {
         margin-bottom: 2px;
     }
 
+    .skills-row > span:first-child::before {
+        content: none;
+    }
+
     .skills-row > span:first-child {
-        grid-column: 1 / -1;
         font-size: var(--fs-base);
         border-bottom: 1px solid var(--dark-border);
         padding-bottom: var(--space-2);
-        margin-bottom: var(--space-2);
     }
 
     /* --- MOBILE WORK --- */
@@ -1545,7 +1428,7 @@ kbd {
     }
 
     .contact-email {
-        font-size: 1.1rem;
+        font-size: 1.25rem;
     }
 
     /* --- MOBILE FOOTER --- */
@@ -1563,15 +1446,13 @@ kbd {
         justify-content: center;
     }
 
-    .dot,
-    .dot-mini {
+    .tb-commits-dot {
         animation: none;
-        opacity: 1;
     }
 }
 
 /* ==========================================================================
-   17. RESPONSIVE — SMALL MOBILE (≤ 400px)
+   16. RESPONSIVE — SMALL MOBILE (≤ 400px)
    ========================================================================== */
 @media (max-width: 400px) {
     .hero-title {
@@ -1583,12 +1464,12 @@ kbd {
     }
 
     .contact-email {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
 }
 
 /* ==========================================================================
-   18. REDUCED MOTION
+   17. REDUCED MOTION
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
@@ -1603,19 +1484,12 @@ kbd {
         -webkit-backdrop-filter: none !important;
         background: var(--dark-bg) !important;
     }
-
-    .dot,
-    .dot-mini {
-        animation: none;
-        opacity: 1;
-    }
 }
 
 /* ==========================================================================
-   19. PRINT STYLES
+   18. PRINT STYLES
    ========================================================================== */
 @media print {
-    .top-bar,
     .site-header,
     .mobile-nav,
     .mobile-overlay,
@@ -1662,6 +1536,12 @@ kbd {
         letter-spacing: -0.01em;
     }
 
+    .section-num,
+    .work-year,
+    .work-tag {
+        color: #444 !important;
+    }
+
     a {
         color: #000 !important;
         text-decoration: underline;
@@ -1696,7 +1576,7 @@ kbd {
 }
 
 /* ==========================================================================
-   20. UTILITIES
+   19. UTILITIES
    ========================================================================== */
 .text-accent { color: var(--accent); }
 .text-muted  { color: var(--dark-text-muted); }
