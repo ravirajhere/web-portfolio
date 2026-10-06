@@ -376,3 +376,101 @@
     })();
 
 })();
+/* ======================================================================
+   13. CONTACT FORM (inline on index.html)
+   ====================================================================== */
+(function initContactForm() {
+    const form = $('#contactForm');
+    const status = $('#formStatus');
+    const submitBtn = $('#submitBtn');
+
+    if (!form || !status || !submitBtn) return;
+
+    const MIN_NAME = 2;
+    const MIN_MSG = 10;
+    let statusTimer = null;
+
+    function showStatus(message, type) {
+        if (statusTimer) clearTimeout(statusTimer);
+        status.textContent = message;
+        status.className = 'status is-visible is-' + type;
+        if (type !== 'loading') {
+            statusTimer = setTimeout(function () {
+                status.className = 'status';
+            }, 5000);
+        }
+    }
+
+    function validateForm(name, email, message) {
+        if (!name || name.length < MIN_NAME) return 'Please enter your name (at least 2 characters).';
+        if (name.length > 60) return 'Name is too long.';
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+        if (!email || !emailRegex.test(email)) return 'Please enter a valid email address.';
+        if (!message || message.length < MIN_MSG) return 'Message must be at least 10 characters.';
+        if (message.length > 2000) return 'Message is too long.';
+        return null;
+    }
+
+    function resetBtn() {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML =
+            '<span>Send Message</span>' +
+            '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">' +
+            '<path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>' +
+            '</svg>';
+    }
+
+    form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const honeypot = $('#hp_website');
+        if (honeypot && honeypot.value.trim() !== '') {
+            return;
+        }
+
+        const name = $('#user_name').value.trim();
+        const email = $('#user_email').value.trim();
+        const message = $('#user_message').value.trim();
+
+        const error = validateForm(name, email, message);
+        if (error) {
+            showStatus(error, 'error');
+            return;
+        }
+
+        showStatus('Sending your message…', 'loading');
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Sending…</span>';
+
+        try {
+            const res = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    message: message,
+                    website: '',
+                    context: 'portfolio'
+                })
+            });
+
+            const data = await res.json().catch(function () { return {}; });
+
+            if (!res.ok) {
+                showStatus(data.error || 'Failed to send. Try again.', 'error');
+                resetBtn();
+                return;
+            }
+
+            showStatus("Message sent. I'll reply soon.", 'success');
+            form.reset();
+            resetBtn();
+        } catch (err) {
+            console.error(err);
+            showStatus('Network error. Try again.', 'error');
+            resetBtn();
+        }
+    });
+})();
+
