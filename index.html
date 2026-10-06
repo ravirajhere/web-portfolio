@@ -35,7 +35,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
     <!-- Styles -->
     <link rel="stylesheet" href="css/style.css" />
@@ -70,7 +70,7 @@
 
     <noscript>
       <style>
-        .menu-btn, .kbd-hint, .cmd-palette { display: none !important; }
+        .menu-btn { display: none !important; }
       </style>
     </noscript>
 </head>
@@ -87,11 +87,9 @@
             <span class="tb-item">Patna, India (IST)</span>
             <span class="tb-spacer"></span>
             <span class="tb-commits" id="tbCommits" aria-live="polite">
-                <span class="tb-commits-dot" aria-hidden="true"></span> Committed today
+                <span class="tb-commits-dot" aria-hidden="true"></span>
+                <span class="tb-commits-text">Committed today</span>
             </span>
-            <button class="kbd-hint" id="kbdHint" type="button" aria-label="Press K for keyboard shortcuts">
-                <kbd>K</kbd> jump
-            </button>
         </div>
     </div>
 
@@ -116,7 +114,7 @@
                         <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
                     </svg>
                 </a>
-                <a href="contact.html" class="btn btn-primary">Get in touch</a>
+                <a href="#contact" class="btn btn-primary">Get in touch</a>
             </div>
 
             <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav" type="button">
@@ -440,23 +438,85 @@
             <header class="section-head">
                 <span class="section-num">03 / Contact</span>
                 <h2 id="contact-heading">Let's build something.</h2>
+                <p class="section-lede">Open to internships and freelance. I reply within 24 hours.</p>
             </header>
-            <p class="contact-lede">Open to frontend and full-stack internships, plus freelance. I reply in 24h, I don't ghost.</p>
 
-            <div class="contact-primary contact-primary-spaced">
-                <button class="contact-email" id="copyEmail" type="button" aria-label="Copy email to clipboard" data-label="raviraj2k09@gmail.com">
-                    <span id="emailText">raviraj2k09@gmail.com</span>
-                    <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
-                        <rect x="5" y="5" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                        <path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                    </svg>
-                </button>
-                <p class="contact-note">Average reply: 24 hours · Patna, India · Open to remote</p>
-                <div class="contact-cta">
-                    <a href="contact.html?from=recruiter" class="btn btn-dark">Send email</a>
-                    <a href="https://linkedin.com/in/Ravirajhere" target="_blank" rel="noopener noreferrer" class="btn btn-quiet">LinkedIn ↗</a>
-                    <a href="https://github.com/ravirajhere" target="_blank" rel="noopener noreferrer" class="btn btn-quiet">GitHub ↗</a>
+            <div class="contact-grid">
+
+                <!-- Left: Quick contact -->
+                <div class="contact-info">
+                    <button class="contact-email" id="copyEmail" type="button" aria-label="Copy email to clipboard" data-label="raviraj2k09@gmail.com">
+                        <span id="emailText">raviraj2k09@gmail.com</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                            <rect x="5" y="5" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                            <path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                        </svg>
+                    </button>
+                    <p class="contact-note">Average reply: 24 hours · Patna, India · Open to remote</p>
+                    <div class="contact-cta">
+                        <a href="https://linkedin.com/in/Ravirajhere" target="_blank" rel="noopener noreferrer" class="btn btn-quiet">LinkedIn ↗</a>
+                        <a href="https://github.com/ravirajhere" target="_blank" rel="noopener noreferrer" class="btn btn-quiet">GitHub ↗</a>
+                    </div>
                 </div>
+
+                <!-- Right: Contact form -->
+                <form id="contactForm" class="contact-form" novalidate>
+
+                    <div class="hp-field" aria-hidden="true">
+                        <label for="hp_website">Website (leave empty)</label>
+                        <input type="text" id="hp_website" name="website" tabindex="-1" autocomplete="off" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="user_name">Your Name <span class="req">*</span></label>
+                        <input
+                            type="text"
+                            id="user_name"
+                            name="user_name"
+                            placeholder="e.g. Priya Sharma"
+                            autocomplete="name"
+                            required
+                            minlength="2"
+                            maxlength="60"
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="user_email">Your Email <span class="req">*</span></label>
+                        <input
+                            type="email"
+                            id="user_email"
+                            name="user_email"
+                            placeholder="e.g. priya@example.com"
+                            autocomplete="email"
+                            required
+                            maxlength="120"
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="user_message">Your Message <span class="req">*</span></label>
+                        <textarea
+                            id="user_message"
+                            name="user_message"
+                            placeholder="Write your message here..."
+                            required
+                            minlength="10"
+                            maxlength="2000"
+                            rows="5"
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <span>Send Message</span>
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                            <path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+
+                    <div id="formStatus" class="status" role="status" aria-live="polite"></div>
+                </form>
+
             </div>
         </section>
 
@@ -496,29 +556,9 @@
         </div>
         <div class="footer-bottom">
             <p>© <span id="year">2026</span> Ravi Raj. Hand-written in Patna.</p>
-            <p class="footer-kbd">Press <kbd>K</kbd> to navigate · Made with ❤️ &amp; Curiosity</p>
+            <p class="footer-kbd">Made with ❤️ &amp; Curiosity</p>
         </div>
     </footer>
-
-    <!-- COMMAND PALETTE -->
-    <div class="cmd-palette" id="cmdPalette" role="dialog" aria-modal="true" aria-labelledby="cmdLabel" hidden>
-        <div class="cmd-overlay" id="cmdOverlay"></div>
-        <div class="cmd-box">
-            <label for="cmdInput" id="cmdLabel" class="sr-only">Jump to section</label>
-            <input id="cmdInput" type="text" placeholder="Jump to… (work, skills, contact)" autocomplete="off" spellcheck="false" />
-            <ul class="cmd-list" id="cmdList" role="listbox" aria-label="Sections">
-                <li role="option" data-target="#work" tabindex="-1"><span>01</span>Work</li>
-                <li role="option" data-target="#skills" tabindex="-1"><span>02</span>Skills</li>
-                <li role="option" data-target="#contact" tabindex="-1"><span>03</span>Contact</li>
-                <li role="option" data-target="resume-pdf.html" tabindex="-1"><span>04</span>Resume</li>
-            </ul>
-            <div class="cmd-foot">
-                <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
-                <span><kbd>↵</kbd> open</span>
-                <span><kbd>esc</kbd> close</span>
-            </div>
-        </div>
-    </div>
 
     <script src="js/script.js" defer></script>
 </body>
