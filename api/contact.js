@@ -1,125 +1,94 @@
-import { Resend } from 'resend';
+// api/contact.js
+const { Resend } = require('resend');
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-// Simple in-memory rate limit
-const rateLimit = new Map();
-const RATE_WINDOW = 60 * 60 * 1000; // 1 hour
-const RATE_MAX = 5;
+// Simple in-memory rate limit (Vercel function instances ke liye)
+const rateLimitMap = new Map();
+const RATE_LIMIT_WINDOW = 60 * 1000;  // 1 minute
+const RATE_LIMIT_MAX = 3;              // 3 requests per minute per IP
 
-function getIP(req) {
-  return (
-    req.headers['x-forwarded-for']?.split(',')[0].trim() ||
-    req.socket?.remoteAddress ||
-    'unknown'
-  );
-}
+module.exports = async function handler(req, res) {
+    // CORS
+    res.setHeader('Access-Control-Allow-Origin', 'https://ravirajhere-portfolio.vercel.app');
+    res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-function isRateLimited(ip) {
-  const now = Date.now();
-  const entry = rateLimit.get(ip) || { count: 0, start: now };
-  if (now - entry.start > RATE_WINDOW) {
-    entry.count = 0;
-    entry.start = now;
-  }
-  entry.count += 1;
-  rateLimit.set(ip, entry);
-  return entry.count > RATE_MAX;
-}
-
-function validate({ name, email, message }) {
-  if (!name || name.length < 2 || name.length > 60) {
-    return 'Invalid name.';
-  }
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
-    return 'Invalid email.';
-  }
-  if (!message || message.length < 10 || message.length > 2000) {
-    return 'Invalid message.';
-  }
-  const spam = ['viagra', 'casino', 'click here', 'buy now', 'crypto'];
-  const lower = message.toLowerCase();
-  if (spam.some((w) => lower.includes(w))) {
-    return 'Message flagged as spam.';
-  }
-  return null;
-}
-
-function escapeHtml(s = '') {
-  return String(s)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
-}
-
-export default async function handler(req, res) {
-  // CORS
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
-  if (req.method === 'OPTIONS') {
-    return res.status(204).end();
-  }
-
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
-
-  const ip = getIP(req);
-  if (isRateLimited(ip)) {
-    return res.status(429).json({
-      error: 'Too many messages. Please try again later.',
-    });
-  }
-
-  const { name, email, message, website, context } = req.body || {};
-
-  // Honeypot
-  if (website && website.trim() !== '') {
-    return res.status(200).json({ ok: true });
-  }
-
-  const err = validate({ name, email, message });
-  if (err) {
-    return res.status(400).json({ error: err });
-  }
-
-  const subject =
-    context === 'author'
-      ? `Book inquiry from ${name}`
-      : context === 'recruiter'
-      ? `Opportunity from ${name}`
-      : `New message from ${name}`;
-
-  try {
-    const { data, error } = await resend.emails.send({
-      from: 'Portfolio <onboarding@resend.dev>',
-      to: 'raviraj2k09@gmail.com',
-      replyTo: email,
-      subject,
-      text: `Name: ${name}\nEmail: ${email}\nContext: ${context || 'general'}\n\n${message}`,
-      html: `
-        <div style="font-family:system-ui,sans-serif;max-width:560px;padding:20px">
-          <h2 style="margin:0 0 16px;color:#1C1A17">New message from ${escapeHtml(name)}</h2>
-          <p style="margin:0 0 8px"><strong>Email:</strong> ${escapeHtml(email)}</p>
-          <p style="margin:0 0 8px"><strong>Context:</strong> ${escapeHtml(context || 'general')}</p>
-          <hr style="border:none;border-top:1px solid #E5DED2;margin:16px 0">
-          <p style="margin:0;white-space:pre-wrap">${escapeHtml(message)}</p>
-        </div>
-      `,
-    });
-
-    if (error) {
-      console.error('[resend]', error);
-      return res.status(500).json({ error: 'Failed to send.' });
+    if (req.method === 'OPTIONS') {
+        return res.status(200).end();
     }
 
-    return res.status(200).json({ ok: true, id: data?.id });
-  } catch (e) {
-    console.error('[contact]', e);
-    return res.status(500).json({ error: 'Server error.' });
-  }
+    if (req.method !== 'POST') {
+        return res.status(405).json({ error: 'Method not allowed' });
+    }
+
+    try {
+        const { name, email, message, website } = req.body || {};
+
+        // Honeypot — silently accept if bot filled it
+        if (website && website.trim() !== '') {
+            return res.status(200).json({ ok: true });
+        }
+
+        // Rate limit
+        const ip = req.headers['x-forwarded-for']?.split(',')[0]?.trim() || 'unknown';
+        const now = Date.now();
+        const entry = rateLimitMap.get(ip);
+        if (entry && now - entry.start < RATE_LIMIT_WINDOW) {
+            if (entry.count >= RATE_LIMIT_MAX) {
+                return res.status(429).json({ error: 'Too many requests. Try again in a minute.' });
+            }
+            entry.count++;
+        } else {
+            rateLimitMap.set(ip, { start: now, count: 1 });
+        }
+
+        // Server-side validation
+        if (!name || name.length < 2 || name.length > 60) {
+            return res.status(400).json({ error: 'Please enter a valid name.' });
+        }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+        if (!email || !emailRegex.test(email) || email.length > 120) {
+            return res.status(400).json({ error: 'Please enter a valid email.' });
+        }
+        if (!message || message.length < 10 || message.length > 2000) {
+            return res.status(400).json({ error: 'Please enter a valid message.' });
+        }
+
+        // Send via Resend
+        const { data, error } = await resend.emails.send({
+            from: 'Portfolio Contact <onboarding@resend.dev>',  // ya apna verified domain
+            to: 'raviraj2k09@gmail.com',
+            replyTo: email,
+            subject: `Portfolio contact — ${name}`,
+            text: `From: ${name} <${email}>\n\n${message}`,
+            html: `
+                <h2>New message from portfolio</h2>
+                <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+                <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+                <hr>
+                <p>${escapeHtml(message).replace(/\n/g, '<br>')}</p>
+            `
+        });
+
+        if (error) {
+            console.error('[contact] Resend error:', error);
+            return res.status(500).json({ error: 'Failed to send. Try again later.' });
+        }
+
+        return res.status(200).json({ ok: true, id: data?.id });
+
+    } catch (err) {
+        console.error('[contact] Server error:', err);
+        return res.status(500).json({ error: 'Server error. Try again later.' });
+    }
+};
+
+function escapeHtml(str) {
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
 }
