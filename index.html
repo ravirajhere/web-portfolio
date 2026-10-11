@@ -1,639 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ravi Raj - Student | Web Portfolio</title>
-    <meta name="description" content="Student from Patna. I build small web projects with HTML, CSS, and JavaScript. 5 live projects. Currently learning React and DSA." />
-    <meta name="author" content="Ravi Raj" />
-    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
-    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
-    <link rel="canonical" href="https://ravirajhere-portfolio.vercel.app/" />
-    <meta name="robots" content="index, follow" />
-
-    <meta property="og:title" content="Ravi Raj - Student | Web Developer" />
-    <meta property="og:description" content="I build small web projects. HTML, CSS, JS. 5 live projects, built in public since 2024." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://ravirajhere-portfolio.vercel.app/" />
-    <meta property="og:image" content="https://ravirajhere-portfolio.vercel.app/assets/images/og-cover.jpg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Ravi Raj - Web Portfolio" />
-    <meta property="og:locale" content="en_IN" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Ravi Raj - Student | Fromtend Developer" />
-    <meta name="twitter:description" content="I build small web projects. HTML, CSS, JS. 5 live projects." />
-    <meta name="twitter:image" content="https://ravirajhere-portfolio.vercel.app/assets/images/og-cover.jpg" />
-
-    <link rel="icon" type="image/png" href="assets/favicon.png" />
-    <link rel="apple-touch-icon" href="assets/favicon.png" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-
-    <link rel="stylesheet" href="css/style.css" />
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Ravi Raj",
-      "url": "https://ravirajhere-portfolio.vercel.app/",
-      "image": "https://ravirajhere-portfolio.vercel.app/assets/images/formal.jpg",
-      "jobTitle": "Student",
-      "description": "Student from Patna. Builds small web projects with HTML, CSS, and JavaScript.",
-      "email": "mailto:raviraj2k09@gmail.com",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Patna",
-        "addressRegion": "Bihar",
-        "addressCountry": "India"
-      },
-      "knowsAbout": ["HTML5", "CSS3", "JavaScript", "Git", "Vercel"],
-      "sameAs": [
-        "https://github.com/ravirajhere",
-        "https://linkedin.com/in/Ravirajhere"
-      ]
-    }
-    </script>
-
-    <noscript>
-      <style>
-        .menu-btn, .mobile-nav, .mobile-overlay { display: none !important; }
-        .primary-nav { display: flex !important; }
-      </style>
-    </noscript>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ravi Raj | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <a href="#main" class="skip-link">Skip to content</a>
 
-    <!-- SCROLL PROGRESS BAR -->
-    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <span class="hero-eyebrow">
+          <span class="eyebrow-dot" aria-hidden="true"></span>
+          Portfolio
+        </span>
 
-    <!-- HEADER -->
-    <header class="site-header" id="siteHeader">
-        <div class="header-inner">
-            <a href="#hero" class="brand" aria-label="Ravi Raj — Home">
-                <img src="assets/favicon.png" alt="" class="brand-mark-img" width="36" height="36" aria-hidden="true" />
-                <span class="brand-text"><strong>Ravi Raj</strong><em>Student</em></span>
-            </a>
+        <h1 class="hero-title">Ravi Raj</h1>
 
-            <nav class="primary-nav" aria-label="Primary">
-                <a href="#hero">About</a>
-                <a href="#work">Work</a>
-                <a href="#education">Education</a>
-                <a href="#skills">Skills</a>
-                <a href="#contact">Contact</a>
-            </nav>
+        <p class="hero-lede">Aspiring CSE Student | Learning C & Web Development</p>
+        <p class="hero-lede">Currently Self Learner</p>
 
-            <div class="header-actions">
-                <a href="resume-pdf.html" class="btn btn-quiet btn-resume" aria-label="View resume">
-                    <svg class="resume-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                        <path d="M9 1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V5L9 1z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-                        <path d="M9 1v4h4M5.5 9h5M5.5 11.5h3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                    </svg>
-                    <span class="resume-label">Resume</span>
-                </a>
-                <a href="#contact" class="btn btn-primary">Get in touch</a>
-            </div>
-
-            <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav" type="button">
-                <span class="menu-lines" aria-hidden="true"><span></span><span></span></span>
-                <span class="menu-label">Menu</span>
-            </button>
+        <div class="hero-actions">
+          <a href="https://linkedin.com/in/ravirajhere" target="_blank" rel="noopener" class="btn btn-quiet">LinkedIn</a>
+          <a href="https://github.com/ravirajhere" target="_blank" rel="noopener" class="btn btn-quiet">GitHub</a>
+          <a href="mailto:raviraj2k09@gmail.com" class="btn btn-quiet">Email</a>
+          <a href="resume-pdf.html" download class="btn btn-primary">Download Resume</a>
         </div>
-    </header>
+      </div>
 
-    <!-- MOBILE NAV -->
-    <div class="mobile-overlay" id="mobileOverlay" hidden aria-hidden="true"></div>
+      <div class="hero-side">
+        <figure class="hero-portrait">
+          <img src="assets/images/formal.jpg" alt="Ravi Raj" />
+        </figure>
+      </div>
+    </div>
+  </section>
 
-    <nav class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true" aria-label="Mobile navigation" hidden aria-hidden="true">
-        <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu" type="button">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M6 6l12 12M6 18L18 6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-            </svg>
-        </button>
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="section-head">
+      <span class="section-num">01 — About</span>
+      <h2>About Me</h2>
+    </div>
+    <p class="about-text">
+      Hi, I'm Ravi Raj— Aspiring CSE student. Currently building my foundation
+      in C programming and web development. Passionate about coding, cricket, and gaming.
+      Learning something new every day, one commit at a time.
+    </p>
+  </section>
 
-        <a href="resume-pdf.html" class="mobile-nav-resume">
-            <svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M9 1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V5L9 1z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-                <path d="M9 1v4h4M5.5 9h5M5.5 11.5h3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-            <span>Resume</span>
-            <span class="mobile-nav-resume-arrow" aria-hidden="true">↗</span>
-        </a>
+  <!-- SKILLS -->
+  <section class="section" id="skills">
+    <div class="section-head">
+      <span class="section-num">02 — Skills</span>
+      <h2>Skills</h2>
+    </div>
 
-        <ul>
-            <li><a href="#hero"><span>01</span>About</a></li>
-            <li><a href="#work"><span>02</span>Work</a></li>
-            <li><a href="#education"><span>03</span>Education</a></li>
-            <li><a href="#skills"><span>04</span>Skills</a></li>
-            <li><a href="#now"><span>05</span>Now</a></li>
-            <li><a href="#contact"><span>06</span>Contact</a></li>
-        </ul>
-        <div class="mobile-nav-foot">
-            <p>Patna, India · IST</p>
-            <p><a href="mailto:raviraj2k09@gmail.com">raviraj2k09@gmail.com</a></p>
+    <div class="skills-table">
+      <div class="skills-row skills-head">
+        <span>Skill</span>
+        <span>Status</span>
+        <span>Notes</span>
+      </div>
+
+      <div class="skills-row">
+        <span>C (Basics)</span>
+        <span data-label="Status"><span class="pill pill-working">Known</span></span>
+        <span data-label="Notes">Learning the fundamentals</span>
+      </div>
+
+      <div class="skills-row">
+        <span>HTML</span>
+        <span data-label="Status"><span class="pill pill-working">Known</span></span>
+        <span data-label="Notes">Hand-written, semantic</span>
+      </div>
+
+      <div class="skills-row">
+        <span>CSS</span>
+        <span data-label="Status"><span class="pill pill-working">Known</span></span>
+        <span data-label="Notes">Custom properties, no frameworks</span>
+      </div>
+
+      <div class="skills-row">
+        <span>Python</span>
+        <span data-label="Status"><span class="pill pill-learning">Learning</span></span>
+        <span data-label="Notes">Currently learning</span>
+      </div>
+
+      <div class="skills-row">
+        <span>JavaScript</span>
+        <span data-label="Status"><span class="pill pill-learning">Learning</span></span>
+        <span data-label="Notes">Currently learning</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <div class="section-head">
+      <span class="section-num">03 — Projects</span>
+      <h2>Projects</h2>
+      <p class="section-lede">Projects coming soon. Currently building my first ones — stay tuned! 🚀</p>
+    </div>
+  </section>
+
+  <!-- HOBBIES -->
+  <section class="section" id="hobbies">
+    <div class="section-head">
+      <span class="section-num">04 — Hobbies</span>
+      <h2>Hobbies</h2>
+    </div>
+
+    <div class="now-list">
+      <div class="now-item">
+        <span class="now-icon" aria-hidden="true">🏏</span>
+        <div class="now-body">
+          <strong>Cricket</strong>
         </div>
-    </nav>
+      </div>
 
-    <!-- MAIN -->
-    <main id="main" tabindex="-1">
-
-        <!-- HERO -->
-        <section class="hero" id="hero" aria-labelledby="hero-heading">
-            <div class="hero-grid">
-                <div class="hero-content">
-                    <p class="hero-eyebrow">
-                        <span class="eyebrow-dot" aria-hidden="true"></span>
-                         Student · Patna, India
-                    </p>
-                    <h1 id="hero-heading" class="hero-title">
-                        I build small web projects.<br>
-                        <em>HTML, CSS, JS — no frameworks, yet.</em>
-                    </h1>
-                    <p class="hero-lede">
-                        I'm Ravi Raj, Aspiring BTech student from Patna. I build small things with HTML, CSS, and JavaScript to understand how the web works. Currently learning React and DSA — building in public since 2024.
-                    </p>
-
-                    <!-- SOCIAL PROOF BAR -->
-                    <div class="proof-bar" role="note" aria-label="Quick stats">
-                        <span><strong>5</strong> live projects</span>
-                        <span class="proof-sep" aria-hidden="true">·</span>
-                        <span><strong>6</strong> public repos</span>
-                        <span class="proof-sep" aria-hidden="true">·</span>
-                        <span>Building in public since <strong>2024</strong></span>
-                    </div>
-
-                    <div class="hero-actions">
-                        <a href="#work" class="btn btn-primary btn-lg">
-                            See my work ↓
-                        </a>
-                        <a href="resume-pdf.html" class="btn btn-quiet btn-lg">
-                            Resume ↗
-                        </a>
-                    </div>
-
-                    <dl class="hero-meta" aria-label="Quick facts">
-                        <div><dt>Focus</dt><dd>HTML · CSS · JavaScript</dd></div>
-                        <div><dt>Based in</dt><dd>Patna, India · Remote</dd></div>
-                        <div><dt>Currently</dt><dd>Learning React &amp; DSA</dd></div>
-                        <div>
-                            <dt>Activity</dt>
-                            <dd>
-                                <a href="https://github.com/ravirajhere" target="_blank" rel="noopener noreferrer" class="tb-commits">
-                                    <span class="tb-commits-dot" aria-hidden="true"></span>
-                                    <span class="tb-commits-text">See my GitHub ↗</span>
-                                </a>
-                            </dd>
-                        </div>
-                    </dl>
-                </div>
-                <aside class="hero-side" aria-label="Portrait">
-                    <figure class="hero-portrait">
-                        <img src="assets/images/formal.jpg" alt="Ravi Raj, photographed in Patna" width="280" height="280" loading="eager" decoding="async" />
-                        <figcaption>
-                            <span class="photo-credit">Ravi Raj · Patna, 2026</span>
-                        </figcaption>
-                    </figure>
-                </aside>
-            </div>
-            <div class="scroll-cue" aria-hidden="true">
-                <span>Scroll — the work begins</span>
-                <span class="scroll-line"></span>
-            </div>
-        </section>
-
-        <!-- WORK -->
-        <section class="section" id="work" aria-labelledby="work-heading">
-            <header class="section-head">
-                <span class="section-num">Selected Work</span>
-                <h2 id="work-heading">Five projects. <em>Built while learning.</em></h2>
-                <p class="section-lede">No frameworks. Every one is live.</p>
-            </header>
-
-            <div class="work-list">
-
-                <!-- Project 1: SQL Practice Tool -->
-                <article class="work-item work-item-featured">
-                    <header class="work-head">
-                        <span class="work-year">2026</span>
-                        <h3>SQL Practice Tool</h3>
-                        <p class="work-tag">Browser-based SQL · sql.js (WASM) · 10 questions</p>
-                    </header>
-                    <dl class="work-detail">
-                        <div>
-                            <dt>The Challenge</dt>
-                            <dd>Beginners can't practice SQL without installing MySQL or PostgreSQL. Setup blocks them before they write their first query.</dd>
-                        </div>
-                        <div>
-                            <dt>What I Built</dt>
-                            <dd>An in-browser SQL practice tool running a real SQLite database via sql.js (WebAssembly). 20 students · 10 practice questions · 100% client-side.</dd>
-                        </div>
-                        <div>
-                            <dt>What I Learned</dt>
-                            <dd>Running SQLite in the browser, query normalization, and rendering dynamic result tables.</dd>
-                        </div>
-                    </dl>
-                    <footer class="work-foot">
-                        <a href="https://rj-sql-practice-tool.vercel.app" target="_blank" rel="noopener noreferrer">
-                            Try it live
-                            <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
-                                <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                            </svg>
-                        </a>
-                        <a href="https://github.com/ravirajhere/sql-practice-tool" target="_blank" rel="noopener noreferrer" class="work-foot-secondary">
-                            Source ↗
-                        </a>
-                    </footer>
-                </article>
-
-                <!-- Project 2: Weather Now -->
-                <article class="work-item">
-                    <header class="work-head">
-                        <span class="work-year">2026</span>
-                        <h3>Weather Now</h3>
-                        <p class="work-tag">Live weather · Geolocation · Open-Meteo API</p>
-                    </header>
-                    <dl class="work-detail">
-                        <div>
-                            <dt>The Challenge</dt>
-                            <dd>Weather apps are cluttered with ads and information overload. Wanted something that just shows what matters — now.</dd>
-                        </div>
-                        <div>
-                            <dt>What I Built</dt>
-                            <dd>A clean weather app using geolocation and Open-Meteo API. City search · live temperature · humidity · wind. 0 API keys required.</dd>
-                        </div>
-                        <div>
-                            <dt>What I Learned</dt>
-                            <dd>Fetch API, async/await, handling geolocation permissions, and rendering loading/error states.</dd>
-                        </div>
-                    </dl>
-                    <footer class="work-foot">
-                        <a href="https://ravirajhere-weather.vercel.app" target="_blank" rel="noopener noreferrer">
-                            Check weather
-                            <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
-                                <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                            </svg>
-                        </a>
-                        <a href="https://github.com/ravirajhere/weather-now" target="_blank" rel="noopener noreferrer" class="work-foot-secondary">
-                            Source ↗
-                        </a>
-                    </footer>
-                </article>
-
-                <!-- Project 3: Quiz App -->
-                <article class="work-item">
-                    <header class="work-head">
-                        <span class="work-year">2026</span>
-                        <h3>Quiz App</h3>
-                        <p class="work-tag">30s timer · Score tracking · localStorage</p>
-                    </header>
-                    <dl class="work-detail">
-                        <div>
-                            <dt>The Challenge</dt>
-                            <dd>Most online quiz apps are cluttered with ads or require signup. Wanted a clean quiz that runs instantly.</dd>
-                        </div>
-                        <div>
-                            <dt>What I Built</dt>
-                            <dd>A JavaScript quiz with 10 questions · 30s timer per question · instant answer feedback · high score saved in localStorage.</dd>
-                        </div>
-                        <div>
-                            <dt>What I Learned</dt>
-                            <dd>Managing multiple pieces of state, timer logic with setInterval, and screen switching without a framework.</dd>
-                        </div>
-                    </dl>
-                    <footer class="work-foot">
-                        <a href="https://rj-quiz-app.vercel.app" target="_blank" rel="noopener noreferrer">
-                            Play quiz
-                            <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
-                                <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                            </svg>
-                        </a>
-                        <a href="https://github.com/ravirajhere/quiz-app" target="_blank" rel="noopener noreferrer" class="work-foot-secondary">
-                            Source ↗
-                        </a>
-                    </footer>
-                </article>
-
-                <!-- Project 4: Expense Splitter -->
-                <article class="work-item">
-                    <header class="work-head">
-                        <span class="work-year">2026</span>
-                        <h3>Expense Splitter</h3>
-                        <p class="work-tag">Split bills · localStorage · No backend</p>
-                    </header>
-                    <dl class="work-detail">
-                        <div>
-                            <dt>The Challenge</dt>
-                            <dd>Splitting group expenses fairly is messy — who owes whom, and how much?</dd>
-                        </div>
-                        <div>
-                            <dt>What I Built</dt>
-                            <dd>A simple expense splitter that tracks who paid what and calculates the minimum number of transactions to settle up. Auto-settles with greedy algorithm · no login · no backend.</dd>
-                        </div>
-                        <div>
-                            <dt>What I Learned</dt>
-                            <dd>Greedy algorithms for debt settlement, and managing app state with vanilla JS.</dd>
-                        </div>
-                    </dl>
-                    <footer class="work-foot">
-                        <a href="https://rj-expense-spliiter.vercel.app" target="_blank" rel="noopener noreferrer">
-                            Try it
-                            <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
-                                <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                            </svg>
-                        </a>
-                        <a href="https://github.com/ravirajhere/expense-splitter" target="_blank" rel="noopener noreferrer" class="work-foot-secondary">
-                            Source ↗
-                        </a>
-                    </footer>
-                </article>
-
-                <!-- Project 5: Password Generator -->
-                <article class="work-item">
-                    <header class="work-head">
-                        <span class="work-year">2026</span>
-                        <h3>Password Generator</h3>
-                        <p class="work-tag">Secure passwords · Strength meter · Copy to clipboard</p>
-                    </header>
-                    <dl class="work-detail">
-                        <div>
-                            <dt>The Challenge</dt>
-                            <dd>Most people reuse weak passwords. Wanted a simple tool that generates strong ones instantly.</dd>
-                        </div>
-                        <div>
-                            <dt>What I Built</dt>
-                            <dd>A password generator with configurable length, numbers, symbols, and case. Strength meter · one-click clipboard copy.</dd>
-                        </div>
-                        <div>
-                            <dt>What I Learned</dt>
-                            <dd>The Clipboard API and how to score password strength with simple entropy rules.</dd>
-                        </div>
-                    </dl>
-                    <footer class="work-foot">
-                        <a href="https://rj-password-tool.vercel.app" target="_blank" rel="noopener noreferrer">
-                            Generate password
-                            <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
-                                <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                            </svg>
-                        </a>
-                        <a href="https://github.com/ravirajhere/password-tool" target="_blank" rel="noopener noreferrer" class="work-foot-secondary">
-                            Source ↗
-                        </a>
-                    </footer>
-                </article>
-
-            </div>
-        </section>
-
-        <!-- EDUCATION -->
-        <section class="section" id="education" aria-labelledby="education-heading">
-            <header class="section-head">
-                <span class="section-num">Education</span>
-                <h2 id="education-heading">Where I studied. <em>Formal record.</em></h2>
-            </header>
-            <ol class="education-list">
-                <li class="education-item">
-                    <span class="education-year">2026</span>
-                    <div class="education-body">
-                        <h3>Class 12 — Science (CBSE)</h3>
-                        <p>Udaan International School, Begusarai</p>
-                    </div>
-                </li>
-                <li class="education-item">
-                    <span class="education-year">2024</span>
-                    <div class="education-body">
-                        <h3>Class 10 (CBSE)</h3>
-                        <p>Mother's Pride International Sr. Sec. Anglo Public School, Begusarai</p>
-                    </div>
-                </li>
-            </ol>
-        </section>
-
-        <!-- SKILLS -->
-        <section class="section" id="skills" aria-labelledby="skills-heading">
-            <header class="section-head">
-                <span class="section-num">Skills</span>
-                <h2 id="skills-heading">What I know. <em>Honest levels.</em></h2>
-                <p class="section-lede">No fake percentages. Just what I've actually built with.</p>
-            </header>
-            <div class="skills-table" role="table" aria-label="Skills matrix">
-                <div class="skills-row skills-head" role="row">
-                    <span role="columnheader">Skill</span>
-                    <span role="columnheader">Level</span>
-                    <span role="columnheader">Proof</span>
-                </div>
-                <div class="skills-row" role="row">
-                    <span role="cell" data-label="Skill">HTML / CSS / JS</span>
-                    <span role="cell" data-label="Level"><span class="pill pill-working">Working</span></span>
-                    <span role="cell" data-label="Proof">This portfolio + 5 live sites</span>
-                </div>
-                <div class="skills-row" role="row">
-                    <span role="cell" data-label="Skill">Git / GitHub</span>
-                    <span role="cell" data-label="Level"><span class="pill pill-working">Working</span></span>
-                    <span role="cell" data-label="Proof">6 public repos</span>
-                </div>
-                <div class="skills-row" role="row">
-                    <span role="cell" data-label="Skill">Vercel</span>
-                    <span role="cell" data-label="Level"><span class="pill pill-working">Working</span></span>
-                    <span role="cell" data-label="Proof">5 projects deployed</span>
-                </div>
-                <div class="skills-row" role="row">
-                    <span role="cell" data-label="Skill">React</span>
-                    <span role="cell" data-label="Level"><span class="pill pill-learning">Learning</span></span>
-                    <span role="cell" data-label="Proof">Building small components</span>
-                </div>
-                <div class="skills-row" role="row">
-                    <span role="cell" data-label="Skill">DSA (C++)</span>
-                    <span role="cell" data-label="Level"><span class="pill pill-learning">Learning</span></span>
-                    <span role="cell" data-label="Proof">Following Striver's A2Z sheet</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- NOW -->
-        <section class="section" id="now" aria-labelledby="now-heading">
-            <header class="section-head">
-                <span class="section-num">Now</span>
-                <h2 id="now-heading">What I'm doing <em>right now.</em></h2>
-                <p class="section-lede">A snapshot of my current focus.</p>
-            </header>
-            <ul class="now-list">
-                <li class="now-item">
-                    <span class="now-icon" aria-hidden="true">📚</span>
-                    <div class="now-body">
-                        <strong>Learning React</strong>
-                        <span>Hooks, state, building small components</span>
-                    </div>
-                </li>
-                <li class="now-item">
-                    <span class="now-icon" aria-hidden="true">🧮</span>
-                    <div class="now-body">
-                        <strong>Solving DSA</strong>
-                        <span>Following Striver's A2Z sheet, starting with arrays</span>
-                    </div>
-                </li>
-                <li class="now-item">
-                    <span class="now-icon" aria-hidden="true">🔨</span>
-                    <div class="now-body">
-                        <strong>Building a React version of Quiz App</strong>
-                        <span>Porting my vanilla JS quiz to React to learn the framework properly</span>
-                    </div>
-                </li>
-                <li class="now-item">
-                    <span class="now-icon" aria-hidden="true">📍</span>
-                    <div class="now-body">
-                        <strong>Based in Patna</strong>
-                        <span>Open to remote internships and collaborations</span>
-                    </div>
-                </li>
-            </ul>
-            <p class="now-updated">Last updated: October 2026</p>
-        </section>
-
-        <!-- ABOUT -->
-        <section class="section" id="about" aria-labelledby="about-heading">
-            <header class="section-head">
-                <span class="section-num">About</span>
-                <h2 id="about-heading">A short note. <em>Still early.</em></h2>
-            </header>
-            <p class="about-text">
-                Student, learning web development by building real projects instead of only watching tutorials. I write HTML, CSS, and JavaScript by hand — no frameworks — because I want to understand how the web works before adding layers on top of it.
-            </p>
-            <p class="about-text">
-                Right now I'm learning React and DSA, and I build small things regularly to keep improving.
-            </p>
-        </section>
-
-        <!-- CONTACT -->
-        <section class="section contact" id="contact" aria-labelledby="contact-heading">
-            <header class="section-head">
-                <span class="section-num">Contact</span>
-                <h2 id="contact-heading">Let's connect.</h2>
-                <p class="section-lede">Open to internships, collabs, and feedback. I reply within 24 hours.</p>
-            </header>
-
-            <div class="contact-grid">
-
-                <div class="contact-info">
-                    <button class="contact-email" id="copyEmail" type="button" aria-label="Copy email to clipboard" data-label="raviraj2k09@gmail.com">
-                        <span id="emailText">raviraj2k09@gmail.com</span>
-                        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
-                            <rect x="5" y="5" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                            <path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                        </svg>
-                    </button>
-                    <p class="contact-note">Average reply: 24 hours · Patna, India · Open to remote</p>
-                    <div class="contact-cta">
-                        <a href="https://linkedin.com/in/Ravirajhere" target="_blank" rel="noopener noreferrer" class="btn btn-quiet">LinkedIn ↗</a>
-                        <a href="https://github.com/ravirajhere" target="_blank" rel="noopener noreferrer" class="btn btn-quiet">GitHub ↗</a>
-                    </div>
-                </div>
-
-                <form id="contactForm" class="contact-form" novalidate>
-
-                    <div class="hp-field" aria-hidden="true">
-                        <label for="hp_website">Website (leave empty)</label>
-                        <input type="text" id="hp_website" name="website" tabindex="-1" autocomplete="off" />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="user_name">Your Name <span class="req">*</span></label>
-                        <input
-                            type="text"
-                            id="user_name"
-                            name="user_name"
-                            placeholder="e.g. Priya Sharma"
-                            autocomplete="name"
-                            required
-                            minlength="2"
-                            maxlength="60"
-                        />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="user_email">Your Email <span class="req">*</span></label>
-                        <input
-                            type="email"
-                            id="user_email"
-                            name="user_email"
-                            placeholder="e.g. priya@example.com"
-                            autocomplete="email"
-                            required
-                            maxlength="120"
-                        />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="user_message">Your Message <span class="req">*</span></label>
-                        <textarea
-                            id="user_message"
-                            name="user_message"
-                            placeholder="Write your message here..."
-                            required
-                            minlength="10"
-                            maxlength="2000"
-                            rows="5"
-                        ></textarea>
-                    </div>
-
-                    <button type="submit" class="submit-btn" id="submitBtn">
-                        <span>Send Message</span>
-                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                            <path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
-
-                    <div id="formStatus" class="status" role="status" aria-live="polite"></div>
-                </form>
-
-            </div>
-        </section>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="site-footer" role="contentinfo">
-        <div class="footer-inner">
-            <div class="footer-col footer-brand-col">
-                <p class="footer-brand">
-                    <img src="assets/favicon.png" alt="" class="footer-brand-icon" width="28" height="28" aria-hidden="true" />
-                    Ravi Raj
-                </p>
-                <p class="footer-tag">Student · Learning Web Dev · Patna, India</p>
-            </div>
-            <div class="footer-col">
-                <p class="footer-label">Navigate</p>
-                <ul>
-                    <li><a href="#hero">About</a></li>
-                    <li><a href="#work">Work</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#now">Now</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <p class="footer-label">Connect</p>
-                <ul>
-                    <li><a href="https://github.com/ravirajhere" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-                    <li><a href="https://linkedin.com/in/Ravirajhere" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                    <li><a href="mailto:raviraj2k09@gmail.com">Email</a></li>
-                </ul>
-            </div>
+      <div class="now-item">
+        <span class="now-icon" aria-hidden="true">🎮</span>
+        <div class="now-body">
+          <strong>Gaming</strong>
         </div>
-        <div class="footer-bottom">
-            <p>© <span id="year">2026</span> Ravi Raj · Last updated October 2026</p>
-            <p class="footer-kbd">
-                <img src="assets/favicon.png" alt="" class="footer-mini-icon" width="16" height="16" aria-hidden="true" />
-                Made with ❤️ &amp; Curiosity
-            </p>
-        </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <script src="js/script.js" defer></script>
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="section-head">
+      <span class="section-num">05 — Contact</span>
+      <h2>Get In Touch</h2>
+      <p class="section-lede">Open to learning, collabs, and a good conversation.</p>
+    </div>
+
+    <div class="contact-info">
+      <a href="mailto:raviraj2k09@gmail.com" class="contact-email">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <path d="m22 6-10 7L2 6"/>
+        </svg>
+        raviraj2k09@gmail.com
+      </a>
+
+      <div class="contact-cta">
+        <a href="mailto:raviraj2k09@gmail.com" class="btn btn-primary">Send Email</a>
+        <a href="https://linkedin.com/in/ravirajhere" target="_blank" rel="noopener" class="btn btn-quiet">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-bottom">
+      <p>© 2026 Ravi Raj</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
