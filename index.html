@@ -6,7 +6,7 @@
   <title>Ravi Raj | Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -22,14 +22,14 @@
 
         <h1 class="hero-title">Ravi Raj</h1>
 
-        <p class="hero-lede">Aspiring CSE Student | Learning C & Web Development</p>
-        <p class="hero-lede">Currently Self Learner</p>
+        <p class="hero-lede">Aspiring BTech CSE Student</p>
+        <p class="hero-lede">Learning C &amp; Full-Stack Web Development</p>
 
         <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">View Projects</a>
           <a href="https://linkedin.com/in/ravirajhere" target="_blank" rel="noopener" class="btn btn-quiet">LinkedIn</a>
           <a href="https://github.com/ravirajhere" target="_blank" rel="noopener" class="btn btn-quiet">GitHub</a>
           <a href="mailto:raviraj2k09@gmail.com" class="btn btn-quiet">Email</a>
-          <a href="resume-pdf.html" download class="btn btn-primary">Download Resume</a>
         </div>
       </div>
 
@@ -48,9 +48,17 @@
       <h2>About Me</h2>
     </div>
     <p class="about-text">
-      Hi, I'm Ravi Raj— Aspiring CSE student. Currently building my foundation
-      in C programming and web development. Passionate about coding, cricket, and gaming.
-      Learning something new every day, one commit at a time.
+      Hi, I'm Ravi Raj — an aspiring BTech CSE student.
+    </p>
+    <p class="about-text">
+      I'm currently building my foundation in C programming and full-stack web development.
+      I love breaking down complex problems and building things from scratch.
+    </p>
+    <p class="about-text">
+      I believe in learning in public and improving 1% daily — one commit at a time.
+    </p>
+    <p class="about-text">
+      Currently exploring: Data Structures, C, and JavaScript.
     </p>
   </section>
 
@@ -69,33 +77,39 @@
       </div>
 
       <div class="skills-row">
-        <span>C (Basics)</span>
-        <span data-label="Status"><span class="pill pill-working">Known</span></span>
-        <span data-label="Notes">Learning the fundamentals</span>
+        <span>C Programming</span>
+        <span data-label="Status"><span class="pill pill-working">Intermediate</span></span>
+        <span data-label="Notes">Arrays, Functions, Pointers &amp; Logic Building</span>
       </div>
 
       <div class="skills-row">
         <span>HTML</span>
         <span data-label="Status"><span class="pill pill-working">Known</span></span>
-        <span data-label="Notes">Hand-written, semantic</span>
+        <span data-label="Notes">Semantic, Accessible markup</span>
       </div>
 
       <div class="skills-row">
         <span>CSS</span>
         <span data-label="Status"><span class="pill pill-working">Known</span></span>
-        <span data-label="Notes">Custom properties, no frameworks</span>
-      </div>
-
-      <div class="skills-row">
-        <span>Python</span>
-        <span data-label="Status"><span class="pill pill-learning">Learning</span></span>
-        <span data-label="Notes">Currently learning</span>
+        <span data-label="Notes">Responsive design, built without frameworks</span>
       </div>
 
       <div class="skills-row">
         <span>JavaScript</span>
         <span data-label="Status"><span class="pill pill-learning">Learning</span></span>
-        <span data-label="Notes">Currently learning</span>
+        <span data-label="Notes">DOM, Events &amp; Logic</span>
+      </div>
+
+      <div class="skills-row">
+        <span>Python</span>
+        <span data-label="Status"><span class="pill pill-learning">Basics</span></span>
+        <span data-label="Notes">Problem solving &amp; scripting</span>
+      </div>
+
+      <div class="skills-row">
+        <span>Git &amp; GitHub</span>
+        <span data-label="Status"><span class="pill pill-working">Known</span></span>
+        <span data-label="Notes">Version control &amp; daily commits</span>
       </div>
     </div>
   </section>
@@ -105,40 +119,77 @@
     <div class="section-head">
       <span class="section-num">03 — Projects</span>
       <h2>Projects</h2>
-      <p class="section-lede">Projects coming soon. Currently building my first ones — stay tuned! 🚀</p>
-    </div>
-  </section>
-
-  <!-- HOBBIES -->
-  <section class="section" id="hobbies">
-    <div class="section-head">
-      <span class="section-num">04 — Hobbies</span>
-      <h2>Hobbies</h2>
     </div>
 
-    <div class="now-list">
-      <div class="now-item">
-        <span class="now-icon" aria-hidden="true">🏏</span>
-        <div class="now-body">
-          <strong>Cricket</strong>
-        </div>
-      </div>
+    <div class="work-list">
 
-      <div class="now-item">
-        <span class="now-icon" aria-hidden="true">🎮</span>
-        <div class="now-body">
-          <strong>Gaming</strong>
+      <article class="work-item">
+        <div class="work-head">
+          <h3>Personal Portfolio</h3>
         </div>
-      </div>
+        <div class="work-detail">
+          <div>
+            <dt>About</dt>
+            <dd>A clean, responsive portfolio built from scratch using only HTML, CSS and JavaScript. No frameworks.</dd>
+          </div>
+          <div>
+            <dt>Tech</dt>
+            <dd>HTML, CSS, JS</dd>
+          </div>
+        </div>
+        <div class="work-foot">
+          <a href="https://ravirajhere-portfolio.vercel.app" target="_blank" rel="noopener">Live ↗</a>
+          <a href="https://github.com/ravirajhere" target="_blank" rel="noopener" class="work-foot-secondary">GitHub ↗</a>
+        </div>
+      </article>
+
+      <article class="work-item">
+        <div class="work-head">
+          <h3>DSA Practice Repository</h3>
+        </div>
+        <div class="work-detail">
+          <div>
+            <dt>About</dt>
+            <dd>Consistently solving DSA problems with proper approach and complexity analysis.</dd>
+          </div>
+          <div>
+            <dt>Tech</dt>
+            <dd>C / Python</dd>
+          </div>
+        </div>
+        <div class="work-foot">
+          <a href="https://github.com/ravirajhere" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </article>
+
+      <article class="work-item">
+        <div class="work-head">
+          <h3>Study &amp; Progress Tracker</h3>
+        </div>
+        <div class="work-detail">
+          <div>
+            <dt>About</dt>
+            <dd>A minimal tool to track daily learning and coding consistency.</dd>
+          </div>
+          <div>
+            <dt>Tech</dt>
+            <dd>JavaScript</dd>
+          </div>
+        </div>
+        <div class="work-foot">
+          <span class="work-tech">In Progress</span>
+        </div>
+      </article>
+
     </div>
   </section>
 
   <!-- CONTACT -->
   <section class="section" id="contact">
     <div class="section-head">
-      <span class="section-num">05 — Contact</span>
+      <span class="section-num">04 — Contact</span>
       <h2>Get In Touch</h2>
-      <p class="section-lede">Open to learning, collabs, and a good conversation.</p>
+      <p class="section-lede">Open to learning, collaborations and conversations around tech.</p>
     </div>
 
     <div class="contact-info">
@@ -153,6 +204,7 @@
       <div class="contact-cta">
         <a href="mailto:raviraj2k09@gmail.com" class="btn btn-primary">Send Email</a>
         <a href="https://linkedin.com/in/ravirajhere" target="_blank" rel="noopener" class="btn btn-quiet">LinkedIn</a>
+        <a href="https://github.com/ravirajhere" target="_blank" rel="noopener" class="btn btn-quiet">GitHub</a>
       </div>
     </div>
   </section>
@@ -160,7 +212,8 @@
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-bottom">
-      <p>© 2026 Ravi Raj</p>
+      <p>© Ravi Raj</p>
+      <p>Built With ❤️ &amp; Curiosity</p>
     </div>
   </footer>
 
